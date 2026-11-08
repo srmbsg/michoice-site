@@ -2,9 +2,9 @@ name: build
 
 on:
   push:
-    branches: [ master ]
+    branches: [ master, main, dev ]
   pull_request:
-    branches: [ master ]
+    branches: [ master, main, dev ]
   workflow_dispatch:
 
 # Static HTML site (no bundler). A "compile" step would be theatre, so CI verifies
