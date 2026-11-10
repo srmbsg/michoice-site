@@ -1,7 +1,7 @@
 /* MiChoice SI chat assistant widget — self-contained, no dependencies.
    Voice: ElevenLabs TTS via /api/tts (Matilda — MiChoice walkthrough voice). Toggle in header. */
 (function () {
-  var BASE = (function () { var s = document.currentScript; if (s && s.src) { try { return new URL('.', s.src).href.replace(/\/$/, ''); } catch (e) {} } return ''; })();
+  var BASE = window.MC_CHAT_BASE || (function () { var s = document.currentScript; if (s && s.src) { try { return new URL('.', s.src).href.replace(/\/$/, ''); } catch (e) {} } return ''; })();
   var API = BASE + '/api/chat';
   var TTS = BASE + '/api/tts';
   var history = [];
