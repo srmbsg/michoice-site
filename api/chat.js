@@ -101,7 +101,7 @@ module.exports = async (req, res) => {
           body: JSON.stringify(payload)
         });
         if (r.status === 503 || r.status === 429) { lastErr = new Error('busy ' + r.status); await new Promise(s => setTimeout(s, 700)); continue; }
-        if (!r.ok) { lastErr = new Error('model error ' + r.status); break; }
+        if (!r.ok) { const eb = await r.text().catch(() => ''); lastErr = new Error('model error ' + r.status + ': ' + eb.slice(0, 200)); break; }
         const data = await r.json();
         const text = (((data.candidates || [])[0] || {}).content || {}).parts?.map(p => p.text || '').join('').trim();
         if (text) return res.status(200).json({ reply: text, sources: [...new Set(hits.map(h => h.file))] });
