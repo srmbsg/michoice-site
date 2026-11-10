@@ -76,37 +76,33 @@ module.exports = async (req, res) => {
     ? hits.map(h => `[from ${h.file}]\n${h.text}`).join('\n\n')
     : '(no matching site content found)';
 
-  const key = process.env.GEMINI_API_KEY;
+  const rawKey = process.env.GEMINI_API_KEY || '';
+  const key = (rawKey.split(/\r?\n/).map(l => l.trim()).find(l => l.startsWith('AQ.')) || rawKey.trim());
   if (!key) return res.status(500).json({ error: 'assistant not configured' });
 
-  const convo = history
-    .filter(h => h && (h.role === 'user' || h.role === 'assistant') && h.text)
-    .map(h => ({ role: h.role === 'assistant' ? 'model' : 'user', parts: [{ text: String(h.text).slice(0, 1000) }] }));
-  convo.push({ role: 'user', parts: [{ text: `SITE CONTENT:\n${context}\n\nVISITOR QUESTION: ${message}` }] });
+  const messages = [{ role: 'system', content: SYSTEM }];
+  for (const h of history) {
+    if (h && (h.role === 'user' || h.role === 'assistant') && h.text) messages.push({ role: h.role, content: String(h.text).slice(0, 1000) });
+  }
+  messages.push({ role: 'user', content: `SITE CONTENT:\n${context}\n\nVISITOR QUESTION: ${message}` });
 
-  const payload = {
-    system_instruction: { parts: [{ text: SYSTEM }] },
-    contents: convo,
-    generationConfig: { temperature: 0.3, maxOutputTokens: 600 }
-  };
-
-  const MODELS = ['gemini-2.5-flash', 'gemini-2.0-flash', 'gemini-2.5-flash-lite'];
+  const MODELS = ['gemini-3.5-flash', 'gemini-3.8-flash'];
   let lastErr = null;
   for (const model of MODELS) {
-    for (let attempt = 0; attempt < 2; attempt++) {
+    for (let attempt = 0; attempt < 3; attempt++) {
       try {
-        const r = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${key}`, {
+        const r = await fetch('https://generativelanguage.googleapis.com/v1beta/openai/chat/completions', {
           method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(payload)
+          headers: { 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + key },
+          body: JSON.stringify({ model, messages, temperature: 0.3, max_tokens: 600 })
         });
-        if (r.status === 503 || r.status === 429) { lastErr = new Error('busy ' + r.status); await new Promise(s => setTimeout(s, 700)); continue; }
+        if (r.status === 503 || r.status === 429) { lastErr = new Error('busy ' + r.status); await new Promise(s2 => setTimeout(s2, 800)); continue; }
         if (!r.ok) { const eb = await r.text().catch(() => ''); lastErr = new Error('model error ' + r.status + ': ' + eb.slice(0, 200)); break; }
         const data = await r.json();
-        const text = (((data.candidates || [])[0] || {}).content || {}).parts?.map(p => p.text || '').join('').trim();
+        const text = (((data.choices || [])[0] || {}).message || {}).content?.trim();
         if (text) return res.status(200).json({ reply: text, sources: [...new Set(hits.map(h => h.file))] });
         lastErr = new Error('empty reply');
-      } catch (e) { lastErr = e; await new Promise(s => setTimeout(s, 500)); }
+      } catch (e) { lastErr = e; await new Promise(s2 => setTimeout(s2, 500)); }
     }
   }
   return res.status(502).json({ error: 'assistant busy, please try again', detail: String(lastErr && lastErr.message || '') });

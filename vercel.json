@@ -2,7 +2,7 @@
  "cleanUrls": true,
  "rewrites": [
   {
-   "source": "/",
+   "source": "/index",
    "destination": "/index.html"
   }
  ]
