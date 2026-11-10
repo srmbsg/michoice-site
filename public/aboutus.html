@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="MiChoice Technology Systems — 35+ years dedicated exclusively to K-12 school food service software. Our story, our team, our philosophy.">
+<title>About Us | MiChoice Technology Systems</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --bg:#0a0a0a;--bg2:#111111;--bg3:#141414;--bg4:#1a1a1a;
+  --border:#1f1f1f;--border2:#2a2a2a;
+  --accent:#3b82f6;--accent-d:#2563eb;--accent-bg:rgba(59,130,246,.08);
+  --t1:#f5f5f5;--t2:#a3a3a3;--t3:#6b7280;
+  --font:-apple-system,BlinkMacSystemFont,'Segoe UI',system-ui,sans-serif;
+}
+body{font-family:var(--font);background:var(--bg);color:var(--t1);line-height:1.6}
+a{color:inherit;text-decoration:none}
+nav{background:var(--bg2);border-bottom:1px solid var(--border);padding:0 2rem;position:sticky;top:0;z-index:100}
+.nav-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:64px}
+.logo{font-size:1.2rem;font-weight:700;letter-spacing:-.02em}
+.logo .mi{color:var(--accent)}
+.nav-links{display:flex;gap:1.75rem;list-style:none}
+.nav-links a{color:var(--t2);font-size:.88rem;font-weight:500;transition:color .2s}
+.nav-links a:hover,.nav-links a.active{color:var(--accent)}
+.nav-cta{background:var(--accent);color:#000 !important;padding:.4rem 1rem;border-radius:4px;font-weight:600 !important;transition:background .2s !important}
+.nav-cta:hover{background:var(--accent-d) !important;color:#000 !important}
+
+.page-hero{max-width:1200px;margin:0 auto;padding:4rem 2rem 3rem}
+.eyebrow{color:var(--accent);font-size:.78rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-bottom:.75rem}
+.page-hero h1{font-size:clamp(2rem,4vw,3rem);font-weight:800;letter-spacing:-.03em;margin-bottom:.75rem}
+.page-hero p{color:var(--t2);font-size:1rem;max-width:640px;line-height:1.75}
+
+.content{max-width:1200px;margin:0 auto;padding:4rem 2rem}
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start}
+.prose p{color:var(--t2);font-size:.95rem;line-height:1.8;margin-bottom:1.25rem}
+.prose h3{font-size:1.25rem;font-weight:700;letter-spacing:-.02em;margin-bottom:.75rem;margin-top:2rem}
+.prose h3:first-child{margin-top:0}
+
+.values-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.25rem}
+.value-card{background:var(--bg3);border:1px solid var(--border);border-radius:8px;padding:1.75rem}
+.value-card .icon{font-size:1.5rem;margin-bottom:.75rem}
+.value-card h4{font-size:1rem;font-weight:700;margin-bottom:.5rem}
+.value-card p{font-size:.85rem;color:var(--t2);line-height:1.65}
+
+.stat-strip{background:var(--bg2);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:3rem 2rem}
+.stat-strip-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:2rem;text-align:center}
+.stat-big{font-size:2.5rem;font-weight:800;color:var(--accent);letter-spacing:-.04em}
+.stat-desc{font-size:.85rem;color:var(--t2);margin-top:.25rem}
+
+.philosophy{max-width:800px;margin:4rem auto;padding:0 2rem;text-align:center}
+.philosophy .quote{font-size:1.35rem;font-weight:600;line-height:1.65;letter-spacing:-.01em;margin-bottom:1.25rem;color:var(--t1)}
+.philosophy .quote .hl{color:var(--accent)}
+.philosophy p{color:var(--t2);font-size:.95rem}
+
+.cta-row{max-width:1200px;margin:0 auto;padding:2rem 2rem 5rem;display:flex;gap:1rem;flex-wrap:wrap}
+.btn-primary{background:var(--accent);color:#000;padding:.75rem 1.75rem;border-radius:5px;font-weight:700;font-size:.95rem;transition:background .2s;display:inline-block}
+.btn-primary:hover{background:var(--accent-d)}
+.btn-secondary{border:1px solid var(--border2);color:var(--t1);padding:.75rem 1.75rem;border-radius:5px;font-weight:600;font-size:.95rem;transition:all .2s;display:inline-block}
+.btn-secondary:hover{border-color:var(--accent);color:var(--accent)}
+
+footer{background:var(--bg2);border-top:1px solid var(--border);padding:2.5rem 2rem}
+.footer-inner{max-width:1200px;margin:0 auto;display:flex;justify-content:space-between;align-items:center}
+.footer-inner p{font-size:.82rem;color:var(--t3)}
+.footer-inner .accent{color:var(--accent)}
+@media(max-width:768px){
+  .nav-links{display:none}
+  .two-col{grid-template-columns:1fr}
+  .values-grid{grid-template-columns:1fr}
+  .stat-strip-inner{grid-template-columns:1fr 1fr}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="logo"><span class="mi">Mi</span>Choice Technology Systems</a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="aboutus.html" class="active">About</a></li>
+      <li><a href="products.html">Products</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="support.html">Support</a></li>
+      <li><a href="contactus.html" class="nav-cta">Contact Us</a></li>
+    </ul>
+  </div>
+</nav>
+
+<div class="page-hero">
+  <div class="eyebrow">About MiChoice</div>
+  <h1>One Industry. One Focus.<br>35 Years of Proof.</h1>
+  <p>MiChoice Technology Systems was built for a single purpose — and has never wavered from it. K-12 child nutrition software, exclusively. No retail. No hospitality. No side projects. Just school food service, done right.</p>
+</div>
+
+<div class="stat-strip">
+  <div class="stat-strip-inner">
+    <div><div class="stat-big">35+</div><div class="stat-desc">Years of Industry Experience</div></div>
+    <div><div class="stat-big">K-12</div><div class="stat-desc">Only Vertical We Serve</div></div>
+    <div><div class="stat-big">12+</div><div class="stat-desc">Integrated Software Modules</div></div>
+    <div><div class="stat-big">USDA</div><div class="stat-desc">Compliant by Design</div></div>
+  </div>
+</div>
+
+<div class="content">
+  <div class="two-col">
+    <div class="prose">
+      <h3>Who We Are</h3>
+      <p>MiChoice Technology Systems, Inc. was founded to fill a gap that nobody else was addressing properly: the need for technology solutions purpose-built for the K-12 school food service market.</p>
+      <p>Other software companies serve school nutrition as a side vertical — one of dozens of industries on their client list. We built MiChoice around the opposite philosophy. School food service isn't a side product for us. It's the whole product. Every line of code, every support call, every implementation plan exists for one reason: to make K-12 child nutrition programs run better.</p>
+      <p>Our staff brings over 35 years of hands-on school food service technology experience. That's not years of general software experience — it's years in cafeterias, central offices, and district IT departments, building systems that feed children and keep food service programs compliant, efficient, and funded.</p>
+      <h3>Our Approach</h3>
+      <p>We focus on solutions, not just products. School food service technology is only cost-effective and productive when it's approached holistically — software, hardware, implementation, training, and ongoing support working together as one system.</p>
+      <p>At MiChoice, we work with client school districts to create unique solutions that combine best-of-breed software and hardware with disciplined project management and the kind of ongoing help desk support that's genuinely unequaled in this industry. The result is a deep, collaborative partnership that translates into real return on investment — not just a software license.</p>
+    </div>
+    <div>
+      <div class="values-grid">
+        <div class="value-card">
+          <div class="icon">◆</div>
+          <h4>K-12 Exclusive</h4>
+          <p>We serve one industry. That depth of focus produces software that actually fits how school food service works — not a generic platform retrofitted for child nutrition.</p>
+        </div>
+        <div class="value-card">
+          <div class="icon">◆</div>
+          <h4>Holistic Solutions</h4>
+          <p>Single products don't solve district-scale problems. We approach every engagement as an integrated challenge — technology, process, people, and support.</p>
+        </div>
+        <div class="value-card">
+          <div class="icon">◆</div>
+          <h4>Microsoft Platform</h4>
+          <p>Built on Microsoft development tools — the same infrastructure your district already relies on. No exotic dependencies. No proprietary lock-in beyond what's necessary.</p>
+        </div>
+        <div class="value-card">
+          <div class="icon">◆</div>
+          <h4>Affordable by Design</h4>
+          <p>K-12 food service programs run on tight budgets. First-rate software shouldn't require enterprise-level contracts. We've always priced for districts, not for Wall Street.</p>
+        </div>
+        <div class="value-card">
+          <div class="icon">◆</div>
+          <h4>On-Site Partnership</h4>
+          <p>We don't mail you software and wish you luck. Every deployment is backed by on-site installation, hands-on training, and a support team that picks up the phone.</p>
+        </div>
+        <div class="value-card">
+          <div class="icon">◆</div>
+          <h4>Compliance Built In</h4>
+          <p>USDA regulations, NSLP requirements, and government reporting are baked into every module — not bolted on as an afterthought or left to the district to configure.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="philosophy">
+  <div class="quote">"We focus on solutions, not just single products or services. School food service technology is only cost-effective and productive if it is approached from a <span class="hl">holistic perspective.</span>"</div>
+  <p>— MiChoice Technology Systems</p>
+</div>
+
+<div class="cta-row">
+  <a href="contactus.html" class="btn-primary">Start a Conversation</a>
+  <a href="products.html" class="btn-secondary">Explore Our Products</a>
+  <a href="services.html" class="btn-secondary">Our Services</a>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <p>© 2026 <span class="accent">MiChoice Technology Systems, Inc.</span> All rights reserved.</p>
+  </div>
+</footer>
+
+<script src="chat-widget.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="EZ-Task Inventory Control Software — powerful cafeteria inventory management for K-12 school food service. 300+ reports, automated reorder, production integration.">
+<title>miInventory (EZ-Task) Inventory | MiChoice Technology Systems</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--bg:#0a0a0a;--bg2:#111111;--bg3:#141414;--border:#1f1f1f;--border2:#2a2a2a;--accent:#3b82f6;--accent-d:#2563eb;--accent-bg:rgba(59,130,246,.08);--t1:#f5f5f5;--t2:#a3a3a3;--t3:#6b7280;--font:-apple-system,BlinkMacSystemFont,'Segoe UI',system-ui,sans-serif}
+body{font-family:var(--font);background:var(--bg);color:var(--t1);line-height:1.6}a{color:inherit;text-decoration:none}
+nav{background:var(--bg2);border-bottom:1px solid var(--border);padding:0 2rem;position:sticky;top:0;z-index:100}
+.nav-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:64px}
+.logo{font-size:1.2rem;font-weight:700;letter-spacing:-.02em}.logo .mi{color:var(--accent)}
+.nav-links{display:flex;gap:1.75rem;list-style:none}.nav-links a{color:var(--t2);font-size:.88rem;font-weight:500;transition:color .2s}.nav-links a:hover{color:var(--accent)}
+.nav-cta{background:var(--accent);color:#000 !important;padding:.4rem 1rem;border-radius:4px;font-weight:600 !important}.nav-cta:hover{background:var(--accent-d) !important;color:#000 !important}
+.breadcrumb{max-width:1200px;margin:0 auto;padding:1.5rem 2rem .5rem;font-size:.82rem;color:var(--t3)}.breadcrumb a{color:var(--accent)}.breadcrumb span{margin:0 .5rem}
+.product-hero{max-width:1200px;margin:0 auto;padding:1.5rem 2rem 3rem;display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
+.badge{display:inline-flex;align-items:center;background:var(--accent-bg);border:1px solid rgba(59,130,246,.25);color:var(--accent);font-size:.72rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:.3rem .7rem;border-radius:3px;margin-bottom:1rem}
+.product-hero h1{font-size:clamp(1.75rem,3.5vw,2.75rem);font-weight:800;letter-spacing:-.03em;margin-bottom:.75rem}
+.product-hero p{color:var(--t2);font-size:.95rem;line-height:1.8;margin-bottom:1.5rem}
+.product-hero-actions{display:flex;gap:1rem;flex-wrap:wrap}
+.btn-primary{background:var(--accent);color:#000;padding:.7rem 1.5rem;border-radius:5px;font-weight:700;font-size:.9rem;display:inline-block;transition:background .2s}.btn-primary:hover{background:var(--accent-d)}
+.btn-secondary{border:1px solid var(--border2);color:var(--t1);padding:.7rem 1.5rem;border-radius:5px;font-weight:600;font-size:.9rem;display:inline-block;transition:all .2s}.btn-secondary:hover{border-color:var(--accent);color:var(--accent)}
+.card-visual{background:var(--bg3);border:1px solid var(--border);border-radius:10px;padding:2rem;text-align:center}
+.big-icon{font-size:4rem;margin-bottom:1rem}
+.stat-highlight{max-width:1200px;margin:0 auto;padding:0 2rem;display:grid;grid-template-columns:repeat(4,1fr);gap:1rem}
+.sh-item{background:var(--bg3);border:1px solid var(--border);border-radius:6px;padding:1.5rem;text-align:center}
+.sh-num{font-size:1.75rem;font-weight:800;color:var(--accent);letter-spacing:-.03em}
+.sh-label{font-size:.8rem;color:var(--t2);margin-top:.25rem}
+.features-section{max-width:1200px;margin:0 auto;padding:4rem 2rem}
+.features-section h2{font-size:1.5rem;font-weight:800;letter-spacing:-.02em;margin-bottom:2rem}
+.features-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1rem}
+.feature-item{background:var(--bg3);border:1px solid var(--border);border-radius:6px;padding:1.5rem}
+.fi-dot{width:8px;height:8px;background:var(--accent);border-radius:50%;margin-bottom:.75rem}
+.feature-item h4{font-size:.95rem;font-weight:700;margin-bottom:.4rem}.feature-item p{font-size:.85rem;color:var(--t2);line-height:1.6}
+.prose-section{max-width:1200px;margin:0 auto;padding:2rem 2rem 5rem;display:grid;grid-template-columns:2fr 1fr;gap:4rem}
+.prose p{color:var(--t2);font-size:.92rem;line-height:1.8;margin-bottom:1.1rem}.prose h3{font-size:1.1rem;font-weight:700;margin:1.75rem 0 .75rem}.prose h3:first-child{margin-top:0}
+.sidebar-card{background:var(--bg3);border:1px solid var(--border);border-radius:8px;padding:1.5rem;margin-bottom:1.25rem}.sidebar-card h4{font-size:.82rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--t3);margin-bottom:.75rem}
+.sidebar-card ul{list-style:none}.sidebar-card li{font-size:.85rem;color:var(--t2);padding:.3rem 0;border-bottom:1px solid var(--border);display:flex;gap:.5rem}.sidebar-card li:last-child{border-bottom:none}.sidebar-card li::before{content:'▸';color:var(--accent);flex-shrink:0}
+footer{background:var(--bg2);border-top:1px solid var(--border);padding:2.5rem 2rem}.footer-inner{max-width:1200px;margin:0 auto;display:flex;justify-content:space-between;align-items:center}.footer-inner p{font-size:.82rem;color:var(--t3)}.accent{color:var(--accent)}
+@media(max-width:768px){.nav-links{display:none}.product-hero{grid-template-columns:1fr}.stat-highlight{grid-template-columns:1fr 1fr}.prose-section{grid-template-columns:1fr}.footer-inner{flex-direction:column;gap:.5rem;text-align:center}}
+</style>
+</head>
+<body>
+<nav><div class="nav-inner"><a href="index.html" class="logo"><span class="mi">Mi</span>Choice Technology Systems</a><ul class="nav-links"><li><a href="index.html">Home</a></li><li><a href="aboutus.html">About</a></li><li><a href="products.html">Products</a></li><li><a href="services.html">Services</a></li><li><a href="support.html">Support</a></li><li><a href="contactus.html" class="nav-cta">Contact Us</a></li></ul></div></nav>
+
+<div class="breadcrumb"><a href="index.html">Home</a><span>›</span><a href="products.html">Products</a><span>›</span>miInventory <span style="font-weight:400;font-size:.68em;opacity:.55">(EZ-Task)</span> Inventory</div>
+
+<div class="product-hero">
+  <div>
+    <div class="badge">miInventory <span style="font-weight:400;font-size:.68em;opacity:.55">(EZ-Task)</span></div>
+    <h1>Inventory Control Software</h1>
+    <p>EZ-Task is the most comprehensive inventory management solution in K-12 food service. Hundreds of reports, automated reorder intelligence, commodity cross-referencing, and full integration with the MiChoice ecosystem — all built to eliminate the manual inventory work that costs your program hours every period.</p>
+    <div class="product-hero-actions">
+      <a href="contactus.html" class="btn-primary">Request a Demo</a>
+      <a href="products.html" class="btn-secondary">← All Products</a>
+    </div>
+  </div>
+  <div class="card-visual" style="padding:0;overflow:hidden;background:#0d0f14">
+<svg viewBox="0 0 380 260" xmlns="http://www.w3.org/2000/svg" style="width:100%;display:block">
+  <rect width="380" height="260" fill="#0d0f14"/>
+  <!-- Dashboard header -->
+  <rect x="15" y="15" width="350" height="26" rx="4" fill="#0f1d30" stroke="#1e3a5c" stroke-width="0.5"/>
+  <text x="25" y="32" fill="#93c5fd" font-size="10" font-family="Arial" font-weight="bold">EZ-Task Inventory Dashboard</text>
+  <rect x="310" y="20" width="50" height="16" rx="3" fill="#1e3a5c"/>
+  <text x="335" y="31" fill="#64748b" font-size="7.5" font-family="Arial" text-anchor="middle">300+ Reports</text>
+  <!-- Bar chart -->
+  <line x1="40" y1="55" x2="40" y2="195" stroke="#1e3a5c" stroke-width="1"/>
+  <line x1="40" y1="195" x2="360" y2="195" stroke="#1e3a5c" stroke-width="1"/>
+  <!-- Bars -->
+  <rect x="60"  y="100" width="34" height="95" rx="2" fill="#2563eb" opacity="0.85"/>
+  <rect x="105" y="130" width="34" height="65" rx="2" fill="#3b82f6" opacity="0.85"/>
+  <rect x="150" y="80"  width="34" height="115" rx="2" fill="#2563eb" opacity="0.85"/>
+  <rect x="195" y="115" width="34" height="80" rx="2" fill="#1d4ed8" opacity="0.85"/>
+  <rect x="240" y="145" width="34" height="50" rx="2" fill="#3b82f6" opacity="0.85"/>
+  <rect x="285" y="90"  width="34" height="105" rx="2" fill="#2563eb" opacity="0.85"/>
+  <rect x="330" y="120" width="34" height="75" rx="2" fill="#3b82f6" opacity="0.85"/>
+  <!-- Value labels on bars -->
+  <text x="77"  y="96"  fill="#93c5fd" font-size="7" font-family="monospace" text-anchor="middle">142</text>
+  <text x="122" y="126" fill="#93c5fd" font-size="7" font-family="monospace" text-anchor="middle">98</text>
+  <text x="167" y="76"  fill="#93c5fd" font-size="7" font-family="monospace" text-anchor="middle">211</text>
+  <text x="212" y="111" fill="#93c5fd" font-size="7" font-family="monospace" text-anchor="middle">156</text>
+  <text x="257" y="141" fill="#93c5fd" font-size="7" font-family="monospace" text-anchor="middle">73</text>
+  <text x="302" y="86"  fill="#93c5fd" font-size="7" font-family="monospace" text-anchor="middle">188</text>
+  <text x="347" y="116" fill="#93c5fd" font-size="7" font-family="monospace" text-anchor="middle">122</text>
+  <!-- X-axis labels -->
+  <g fill="#4b6d90" font-size="6.5" font-family="Arial" text-anchor="middle">
+    <text x="77"  y="207">Proteins</text>
+    <text x="122" y="207">Grains</text>
+    <text x="167" y="207">Produce</text>
+    <text x="212" y="207">Dairy</text>
+    <text x="257" y="207">Canned</text>
+    <text x="302" y="207">Frozen</text>
+    <text x="347" y="207">Dry</text>
+  </g>
+  <!-- Production tag -->
+  <rect x="250" y="55" width="110" height="28" rx="4" fill="#0f2030" stroke="#2563eb" stroke-width="0.5"/>
+  <text x="305" y="67" fill="#3b82f6" font-size="7.5" font-family="Arial" text-anchor="middle" font-weight="bold">Production Linked</text>
+  <text x="305" y="78" fill="#4b6d90" font-size="6.5" font-family="Arial" text-anchor="middle">Auto-depletion on use</text>
+  <text x="190" y="235" fill="#4b6d90" font-size="8" font-family="Arial" text-anchor="middle">300+ Reports · No Manual Extensions · USDA Compliant</text>
+</svg>
+</div>
+    <h3>miInventory <span style="font-weight:400;font-size:.68em;opacity:.55">(EZ-Task)</span> Inventory</h3>
+    <p>300+ Reports · Automated Reorder · Cost of Goods Tracking</p>
+  </div>
+</div>
+
+<div class="stat-highlight">
+  <div class="sh-item"><div class="sh-num">300+</div><div class="sh-label">Standard Reports</div></div>
+  <div class="sh-item"><div class="sh-num">0</div><div class="sh-label">Manual Extensions Required</div></div>
+  <div class="sh-item"><div class="sh-num">Live</div><div class="sh-label">Cost of Goods Tracking</div></div>
+  <div class="sh-item"><div class="sh-num">∞</div><div class="sh-label">Commodity Cross-References</div></div>
+</div>
+
+<div class="features-section">
+  <h2>Key Features</h2>
+  <div class="features-grid">
+    <div class="feature-item"><div class="fi-dot"></div><h4>300+ Standard Reports</h4><p>Every inventory report a child nutrition director needs — item usage, cost of goods, inventory levels, reorder suggestions, and more.</p></div>
+    <div class="feature-item"><div class="fi-dot"></div><h4>Automated Inventory Extension</h4><p>EZ-Task eliminates the manual work of extending inventory counts. Totals are calculated automatically — hours of work reduced to minutes.</p></div>
+    <div class="feature-item"><div class="fi-dot"></div><h4>Item &amp; Quantity Tracking</h4><p>Track every item in your inventory with real-time quantity updates driven by production records and deliveries.</p></div>
+    <div class="feature-item"><div class="fi-dot"></div><h4>Cost of Goods Tracking</h4><p>Know exactly what every item costs, what it costs per serving, and how your food costs are trending — automatically.</p></div>
+    <div class="feature-item"><div class="fi-dot"></div><h4>Suggested Reorder</h4><p>EZ-Task monitors inventory levels and generates suggested reorder reports before items run out — preventing shortages without overstocking.</p></div>
+    <div class="feature-item"><div class="fi-dot"></div><h4>Commodity Cross-References</h4><p>Full commodity item cross-referencing to track USDA commodity foods alongside purchased items in a unified inventory.</p></div>
+    <div class="feature-item"><div class="fi-dot"></div><h4>Purchasing &amp; Receiving</h4><p>Purchase order management and delivery receiving built in — inventory updates automatically on receipt confirmation.</p></div>
+    <div class="feature-item"><div class="fi-dot"></div><h4>Production Depletion</h4><p>Production records automatically deplete inventory items as meals are prepared — no manual entry, no end-of-period reconciliation.</p></div>
+    <div class="feature-item"><div class="fi-dot"></div><h4>Multi-Location Support</h4><p>Manage inventory across multiple schools and warehouses from one system — with site-specific and district-aggregate views.</p></div>
+  </div>
+</div>
+
+<div class="prose-section">
+  <div class="prose">
+    <h3>Ending the Inventory Extension Problem</h3>
+    <p>If you're still doing inventory the old way — counting items, writing them on paper, then manually calculating extensions and totals — EZ-Task will transform how your program operates. Inventory time is cut dramatically. The time spent extending inventory is eliminated completely.</p>
+    <p>Child nutrition directors can track items and quantities, produce the reports they need for government compliance, and manage their lunchroom inventory with confidence — without the hours of administrative burden that used to define end-of-period inventory work.</p>
+    <h3>The Report Library</h3>
+    <p>With 300+ standard reports, EZ-Task covers every inventory management scenario your program will encounter — cost of goods summaries, inventory level snapshots, item usage trends, suggested reorder lists, commodity cross-reference reports, purchasing history, and more. All of these are pre-built and available on demand — no custom report configuration required for standard functions.</p>
+    <h3>Production Integration</h3>
+    <p>EZ-Task closes the loop between production and inventory automatically. When production data is recorded — actual quantities prepared — those quantities automatically deplete the corresponding inventory items in EZ-Task. No manual entry. No reconciliation at period end. The inventory is always current.</p>
+  </div>
+  <div>
+    <div class="sidebar-card"><h4>Report Categories</h4><ul><li>Cost of goods reports</li><li>Inventory level reports</li><li>Item usage reports</li><li>Suggested reorder reports</li><li>Commodity cross-reference</li><li>Purchasing history</li><li>Receiving records</li></ul></div>
+    <div class="sidebar-card"><h4>Integrates With</h4><ul><li>Production records (auto-depletion)</li><li>COMS-PRO Central Office</li><li>eMeal POS</li></ul></div>
+  </div>
+</div>
+
+<footer><div class="footer-inner"><p>© 2026 <span class="accent">MiChoice Technology Systems, Inc.</span> All rights reserved.</p></div></footer>
+<script src="chat-widget.js" defer></script>
+</body>
+</html>

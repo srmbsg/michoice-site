@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Online Patron Meal Payments via mymealmoney.com — secure K-12 cafeteria online payment solution from MiChoice.">
+<title>Online Meal Payments | MiChoice Technology Systems</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--bg:#0a0a0a;--bg2:#111111;--bg3:#141414;--border:#1f1f1f;--border2:#2a2a2a;--accent:#3b82f6;--accent-d:#2563eb;--accent-bg:rgba(59,130,246,.08);--t1:#f5f5f5;--t2:#a3a3a3;--t3:#6b7280;--font:-apple-system,BlinkMacSystemFont,'Segoe UI',system-ui,sans-serif}
+body{font-family:var(--font);background:var(--bg);color:var(--t1);line-height:1.6}a{color:inherit;text-decoration:none}
+nav{background:var(--bg2);border-bottom:1px solid var(--border);padding:0 2rem;position:sticky;top:0;z-index:100}
+.nav-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:64px}
+.logo{font-size:1.2rem;font-weight:700;letter-spacing:-.02em}.logo .mi{color:var(--accent)}
+.nav-links{display:flex;gap:1.75rem;list-style:none}.nav-links a{color:var(--t2);font-size:.88rem;font-weight:500;transition:color .2s}.nav-links a:hover{color:var(--accent)}
+.nav-cta{background:var(--accent);color:#000 !important;padding:.4rem 1rem;border-radius:4px;font-weight:600 !important}.nav-cta:hover{background:var(--accent-d) !important;color:#000 !important}
+.breadcrumb{max-width:1200px;margin:0 auto;padding:1.5rem 2rem .5rem;font-size:.82rem;color:var(--t3)}.breadcrumb a{color:var(--accent)}.breadcrumb span{margin:0 .5rem}
+.product-hero{max-width:1200px;margin:0 auto;padding:1.5rem 2rem 3rem;display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
+.badge{display:inline-flex;align-items:center;background:var(--accent-bg);border:1px solid rgba(59,130,246,.25);color:var(--accent);font-size:.72rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:.3rem .7rem;border-radius:3px;margin-bottom:1rem}
+.product-hero h1{font-size:clamp(1.75rem,3.5vw,2.75rem);font-weight:800;letter-spacing:-.03em;margin-bottom:.75rem}
+.product-hero p{color:var(--t2);font-size:.95rem;line-height:1.8;margin-bottom:1.5rem}
+.product-hero-actions{display:flex;gap:1rem;flex-wrap:wrap}
+.btn-primary{background:var(--accent);color:#000;padding:.7rem 1.5rem;border-radius:5px;font-weight:700;font-size:.9rem;display:inline-block;transition:background .2s}.btn-primary:hover{background:var(--accent-d)}
+.btn-secondary{border:1px solid var(--border2);color:var(--t1);padding:.7rem 1.5rem;border-radius:5px;font-weight:600;font-size:.9rem;display:inline-block;transition:all .2s}.btn-secondary:hover{border-color:var(--accent);color:var(--accent)}
+.card-visual{background:var(--bg3);border:1px solid var(--border);border-radius:10px;padding:2rem;text-align:center}.big-icon{font-size:4rem;margin-bottom:1rem}
+.flow{max-width:1200px;margin:0 auto;padding:0 2rem}
+.flow h2{font-size:1.25rem;font-weight:700;margin-bottom:1.25rem}
+.flow-steps{display:flex;gap:0;align-items:stretch}
+.flow-step{flex:1;background:var(--bg3);border:1px solid var(--border);padding:1.25rem;text-align:center}
+.flow-step:first-child{border-radius:6px 0 0 6px}.flow-step:last-child{border-radius:0 6px 6px 0}
+.flow-arrow{display:flex;align-items:center;color:var(--accent);font-size:1.25rem;padding:0 .5rem;flex-shrink:0}
+.flow-step .f-num{font-size:1.5rem;font-weight:800;color:var(--accent);margin-bottom:.4rem}
+.flow-step h4{font-size:.85rem;font-weight:700;margin-bottom:.25rem}.flow-step p{font-size:.75rem;color:var(--t2);line-height:1.5}
+.features-section{max-width:1200px;margin:0 auto;padding:4rem 2rem}
+.features-section h2{font-size:1.5rem;font-weight:800;letter-spacing:-.02em;margin-bottom:2rem}
+.features-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1rem}
+.feature-item{background:var(--bg3);border:1px solid var(--border);border-radius:6px;padding:1.5rem}
+.fi-dot{width:8px;height:8px;background:var(--accent);border-radius:50%;margin-bottom:.75rem}
+.feature-item h4{font-size:.95rem;font-weight:700;margin-bottom:.4rem}.feature-item p{font-size:.85rem;color:var(--t2);line-height:1.6}
+.prose-section{max-width:1200px;margin:0 auto;padding:2rem 2rem 5rem;display:grid;grid-template-columns:2fr 1fr;gap:4rem}
+.prose p{color:var(--t2);font-size:.92rem;line-height:1.8;margin-bottom:1.1rem}.prose h3{font-size:1.1rem;font-weight:700;margin:1.75rem 0 .75rem}.prose h3:first-child{margin-top:0}
+.sidebar-card{background:var(--bg3);border:1px solid var(--border);border-radius:8px;padding:1.5rem;margin-bottom:1.25rem}.sidebar-card h4{font-size:.82rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--t3);margin-bottom:.75rem}
+.sidebar-card ul{list-style:none}.sidebar-card li{font-size:.85rem;color:var(--t2);padding:.3rem 0;border-bottom:1px solid var(--border);display:flex;gap:.5rem}.sidebar-card li:last-child{border-bottom:none}.sidebar-card li::before{content:'▸';color:var(--accent);flex-shrink:0}
+footer{background:var(--bg2);border-top:1px solid var(--border);padding:2.5rem 2rem}.footer-inner{max-width:1200px;margin:0 auto;display:flex;justify-content:space-between;align-items:center}.footer-inner p{font-size:.82rem;color:var(--t3)}.accent{color:var(--accent)}
+@media(max-width:768px){.nav-links{display:none}.product-hero{grid-template-columns:1fr}.flow-steps{flex-direction:column}.flow-arrow{transform:rotate(90deg)}.prose-section{grid-template-columns:1fr}.footer-inner{flex-direction:column;gap:.5rem;text-align:center}}
+</style>
+</head>
+<body>
+<nav><div class="nav-inner"><a href="index.html" class="logo"><span class="mi">Mi</span>Choice Technology Systems</a><ul class="nav-links"><li><a href="index.html">Home</a></li><li><a href="aboutus.html">About</a></li><li><a href="products.html">Products</a></li><li><a href="services.html">Services</a></li><li><a href="support.html">Support</a></li><li><a href="contactus.html" class="nav-cta">Contact Us</a></li></ul></div></nav>
+<div class="breadcrumb"><a href="index.html">Home</a><span>›</span><a href="products.html">Products</a><span>›</span>Online Meal Payments</div>
+
+<div class="product-hero">
+  <div>
+    <div class="badge">miMealMoney <span style="font-weight:400;font-size:.68em;opacity:.55">(mymealmoney.com)</span></div>
+    <h1>Online Patron Meal Payments</h1>
+    <p>Parents pay their student's meal account online — credit card, debit card, via the district's personalized secure web store. Payments import automatically into MiChoice. No manual data entry. No reconciliation headaches. Processed by RevTrak, a K-12 payment processor.</p>
+    <div class="product-hero-actions">
+      <a href="contactus.html" class="btn-primary">Request a Demo</a>
+      <a href="products.html" class="btn-secondary">← All Products</a>
+    </div>
+  </div>
+  <div class="card-visual" style="padding:0;overflow:hidden;background:#0d0f14">
+<svg viewBox="0 0 380 260" xmlns="http://www.w3.org/2000/svg" style="width:100%;display:block">
+  <rect width="380" height="260" fill="#0d0f14"/>
+  <!-- Credit card graphic -->
+  <rect x="50" y="40" width="220" height="135" rx="10" fill="#1e3a5c" stroke="#2563eb" stroke-width="1.5"/>
+  <!-- Card gradient stripe top -->
+  <rect x="50" y="40" width="220" height="48" rx="10" fill="#2563eb" opacity="0.5"/>
+  <rect x="50" y="70" width="220" height="18" fill="#2563eb" opacity="0.3"/>
+  <!-- Chip -->
+  <rect x="70" y="82" width="32" height="24" rx="3" fill="#f59e0b" opacity="0.85"/>
+  <line x1="70" y1="94" x2="102" y2="94" stroke="#b45309" stroke-width="0.8"/>
+  <line x1="86" y1="82" x2="86" y2="106" stroke="#b45309" stroke-width="0.8"/>
+  <!-- Contactless symbol -->
+  <g fill="none" stroke="#93c5fd" stroke-width="1.5" stroke-linecap="round" opacity="0.7" transform="translate(116,86)">
+    <path d="M 0 6 A 6 6 0 0 1 0 -6"/>
+    <path d="M 6 10 A 12 12 0 0 1 6 -10"/>
+    <path d="M 12 14 A 18 18 0 0 1 12 -14"/>
+  </g>
+  <!-- Card number -->
+  <text x="70" y="140" fill="#93c5fd" font-size="11" font-family="monospace" letter-spacing="3">•••• •••• •••• 4821</text>
+  <!-- Cardholder & expiry -->
+  <text x="70" y="158" fill="#64748b" font-size="7" font-family="Arial">CARDHOLDER</text>
+  <text x="190" y="158" fill="#64748b" font-size="7" font-family="Arial">EXPIRES</text>
+  <text x="70" y="168" fill="#93c5fd" font-size="8" font-family="Arial" font-weight="bold">Johnson Family</text>
+  <text x="190" y="168" fill="#93c5fd" font-size="8" font-family="Arial" font-weight="bold">09/27</text>
+  <!-- Security lock badge -->
+  <g transform="translate(300,80)">
+    <circle cx="0" cy="0" r="38" fill="#0f1d30" stroke="#1e3a5c" stroke-width="1"/>
+    <rect x="-15" y="-5" width="30" height="22" rx="4" fill="#1e3a5c" stroke="#3b82f6" stroke-width="1"/>
+    <path d="M -9 -5 L -9 -14 A 9 9 0 0 1 9 -14 L 9 -5" fill="none" stroke="#3b82f6" stroke-width="2" stroke-linecap="round"/>
+    <circle cx="0" cy="8" r="4" fill="#3b82f6"/>
+    <text x="0" y="45" fill="#93c5fd" font-size="7" font-family="Arial" text-anchor="middle" font-weight="bold">Secure</text>
+    <text x="0" y="55" fill="#64748b" font-size="6.5" font-family="Arial" text-anchor="middle">Encrypted</text>
+  </g>
+  <!-- Confirmation bar -->
+  <rect x="50" y="190" width="220" height="28" rx="4" fill="#14532d" stroke="#22c55e" stroke-width="0.5"/>
+  <path d="M 65 204 L 72 211 L 85 197" stroke="#22c55e" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+  <text x="180" y="201" fill="#86efac" font-size="8" font-family="Arial" text-anchor="middle" font-weight="bold">Payment Confirmed</text>
+  <text x="180" y="212" fill="#4b9a6a" font-size="7" font-family="Arial" text-anchor="middle">Imported to MiChoice · No Manual Entry</text>
+  <text x="190" y="245" fill="#4b6d90" font-size="8" font-family="Arial" text-anchor="middle">mymealmoney.com · Payments by RevTrak</text>
+</svg>
+</div><h3>Online Meal Payments</h3><p>Secure Online Payments · Automatic Import · Zero Manual Entry</p></div>
+</div>
+
+<div class="flow">
+  <h2>How It Works</h2>
+  <div class="flow-steps">
+    <div class="flow-step"><div class="f-num">1</div><h4>Parent Visits Portal</h4><p>mymealmoney.com, branded for the district</p></div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-step"><div class="f-num">2</div><h4>Selects Student</h4><p>Looks up their student's account balance</p></div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-step"><div class="f-num">3</div><h4>Pays Online</h4><p>Credit or debit card via secure RevTrak store</p></div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-step"><div class="f-num">4</div><h4>Auto Import</h4><p>Daily import to MiChoice — no manual entry</p></div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-step"><div class="f-num">5</div><h4>Balance Available</h4><p>Student's account funded at next meal service</p></div>
+  </div>
+</div>
+
+<div class="features-section">
+  <h2>Key Features</h2>
+  <div class="features-grid">
+    <div class="feature-item"><div class="fi-dot"></div><h4>Credit &amp; Debit Card Payments</h4><p>Parents pay using any major credit or debit card through the district's secure RevTrak-powered web store.</p></div>
+    <div class="feature-item"><div class="fi-dot"></div><h4>Secure Online Processing</h4><p>Payments are processed through RevTrak's encrypted, hosted payment platform — no card data is stored by the district.</p></div>
+    <div class="feature-item"><div class="fi-dot"></div><h4>District-Branded Portal</h4><p>Each district gets a personalized web store under the mymealmoney.com umbrella — familiar and trustworthy for families.</p></div>
+    <div class="feature-item"><div class="fi-dot"></div><h4>Automatic Daily Import</h4><p>A simple daily import process moves all online payments into MiChoice with no manual data entry required from district staff.</p></div>
+    <div class="feature-item"><div class="fi-dot"></div><h4>Fund Accounting Reports</h4><p>RevTrak generates fund accounting reports that make reconciliation simple and efficient for district finance staff.</p></div>
+    <div class="feature-item"><div class="fi-dot"></div><h4>Balance Visibility</h4><p>Parents can check their student's current balance before making a payment — informed parents, fewer low-balance surprises.</p></div>
+    <div class="feature-item"><div class="fi-dot"></div><h4>Reduces Office Inquiries</h4><p>When parents can check balances and pay online, cafeteria offices field fewer "what's my child's balance?" phone calls.</p></div>
+    <div class="feature-item"><div class="fi-dot"></div><h4>Proven Integration</h4><p>The RevTrak payment integration is maintained and supported end-to-end, giving districts a stable, hands-off payment pipeline.</p></div>
+  </div>
+</div>
+
+<div class="prose-section">
+  <div class="prose">
+    <h3>The Payment Collection Challenge</h3>
+    <p>Collecting meal account payments from families has historically been a friction-heavy process — cash sent with students, checks processed manually, balances updated by hand. Each of these touchpoints creates administrative work, increases error risk, and creates cash handling security exposure.</p>
+    <p>Online meal payment solves all three. Parents pay digitally at their convenience. RevTrak handles the payment security. The daily automatic import into MiChoice eliminates manual processing. The result is less work for district staff, faster balance updates for students, and a more convenient experience for families.</p>
+    <h3>The RevTrak Integration</h3>
+    <p>MiChoice's online payment solution runs on RevTrak, a provider of credit and debit card solutions for K-12 schools. RevTrak's hosted platform handles cardholder data and payment security, so districts don't need to build or maintain their own payment security infrastructure.</p>
+    <h3>Fund Accounting and Reconciliation</h3>
+    <p>Online payments are easy to receive but can create reconciliation complexity if the reporting isn't designed for it. RevTrak's fund accounting reports are built specifically for school finance offices — making the reconciliation between collected payments and account postings straightforward and audit-friendly.</p>
+  </div>
+  <div>
+    <div class="sidebar-card"><h4>Payment Methods</h4><ul><li>Major credit cards</li><li>Debit cards</li><li>Secure online processing</li></ul></div>
+    <div class="sidebar-card"><h4>Security</h4><ul><li>Hosted by RevTrak</li><li>Encrypted transactions</li><li>No card data stored by district</li><li>Built for K-12 payments</li></ul></div>
+    <div class="sidebar-card"><h4>Integrates With</h4><ul><li>MiChoice eMeal POS</li><li>COMS-PRO student accounts</li><li>Online Meal Account Retrieval</li></ul></div>
+  </div>
+</div>
+
+<footer><div class="footer-inner"><p>© 2026 <span class="accent">MiChoice Technology Systems, Inc.</span> All rights reserved.</p></div></footer>
+<script src="chat-widget.js" defer></script>
+</body>
+</html>

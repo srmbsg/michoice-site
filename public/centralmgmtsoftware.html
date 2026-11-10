@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="COMS-PRO Central Office Management Software — the district-wide data hub for K-12 child nutrition programs from MiChoice Technology Systems.">
+<title>miComs (COMS-PRO) Central Office Management | MiChoice Technology Systems</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--bg:#0a0a0a;--bg2:#111111;--bg3:#141414;--bg4:#1a1a1a;--border:#1f1f1f;--border2:#2a2a2a;--accent:#3b82f6;--accent-d:#2563eb;--accent-bg:rgba(59,130,246,.08);--t1:#f5f5f5;--t2:#a3a3a3;--t3:#6b7280;--font:-apple-system,BlinkMacSystemFont,'Segoe UI',system-ui,sans-serif}
+body{font-family:var(--font);background:var(--bg);color:var(--t1);line-height:1.6}
+a{color:inherit;text-decoration:none}
+nav{background:var(--bg2);border-bottom:1px solid var(--border);padding:0 2rem;position:sticky;top:0;z-index:100}
+.nav-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:64px}
+.logo{font-size:1.2rem;font-weight:700;letter-spacing:-.02em}.logo .mi{color:var(--accent)}
+.nav-links{display:flex;gap:1.75rem;list-style:none}
+.nav-links a{color:var(--t2);font-size:.88rem;font-weight:500;transition:color .2s}.nav-links a:hover{color:var(--accent)}
+.nav-cta{background:var(--accent);color:#000 !important;padding:.4rem 1rem;border-radius:4px;font-weight:600 !important}.nav-cta:hover{background:var(--accent-d) !important;color:#000 !important}
+.breadcrumb{max-width:1200px;margin:0 auto;padding:1.5rem 2rem .5rem;font-size:.82rem;color:var(--t3)}
+.breadcrumb a{color:var(--accent)}.breadcrumb span{margin:0 .5rem}
+.product-hero{max-width:1200px;margin:0 auto;padding:1.5rem 2rem 3rem;display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
+.badge{display:inline-flex;gap:.4rem;align-items:center;background:var(--accent-bg);border:1px solid rgba(59,130,246,.25);color:var(--accent);font-size:.72rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:.3rem .7rem;border-radius:3px;margin-bottom:1rem}
+.product-hero h1{font-size:clamp(1.75rem,3.5vw,2.75rem);font-weight:800;letter-spacing:-.03em;margin-bottom:.75rem}
+.product-hero p{color:var(--t2);font-size:.95rem;line-height:1.8;margin-bottom:1.5rem}
+.product-hero-actions{display:flex;gap:1rem;flex-wrap:wrap}
+.btn-primary{background:var(--accent);color:#000;padding:.7rem 1.5rem;border-radius:5px;font-weight:700;font-size:.9rem;display:inline-block;transition:background .2s}.btn-primary:hover{background:var(--accent-d)}
+.btn-secondary{border:1px solid var(--border2);color:var(--t1);padding:.7rem 1.5rem;border-radius:5px;font-weight:600;font-size:.9rem;display:inline-block;transition:all .2s}.btn-secondary:hover{border-color:var(--accent);color:var(--accent)}
+.card-visual{background:var(--bg3);border:1px solid var(--border);border-radius:10px;padding:2rem;text-align:center}
+.big-icon{font-size:4rem;margin-bottom:1rem}
+.features-section{max-width:1200px;margin:0 auto;padding:4rem 2rem}
+.features-section h2{font-size:1.5rem;font-weight:800;letter-spacing:-.02em;margin-bottom:2rem}
+.features-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1rem}
+.feature-item{background:var(--bg3);border:1px solid var(--border);border-radius:6px;padding:1.5rem}
+.fi-dot{width:8px;height:8px;background:var(--accent);border-radius:50%;margin-bottom:.75rem}
+.feature-item h4{font-size:.95rem;font-weight:700;margin-bottom:.4rem}
+.feature-item p{font-size:.85rem;color:var(--t2);line-height:1.6}
+.prose-section{max-width:1200px;margin:0 auto;padding:2rem 2rem 5rem;display:grid;grid-template-columns:2fr 1fr;gap:4rem}
+.prose p{color:var(--t2);font-size:.92rem;line-height:1.8;margin-bottom:1.1rem}
+.prose h3{font-size:1.1rem;font-weight:700;margin:1.75rem 0 .75rem}.prose h3:first-child{margin-top:0}
+.sidebar-card{background:var(--bg3);border:1px solid var(--border);border-radius:8px;padding:1.5rem;margin-bottom:1.25rem}
+.sidebar-card h4{font-size:.82rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--t3);margin-bottom:.75rem}
+.sidebar-card ul{list-style:none}
+.sidebar-card li{font-size:.85rem;color:var(--t2);padding:.3rem 0;border-bottom:1px solid var(--border);display:flex;gap:.5rem}.sidebar-card li:last-child{border-bottom:none}.sidebar-card li::before{content:'▸';color:var(--accent);flex-shrink:0}
+footer{background:var(--bg2);border-top:1px solid var(--border);padding:2.5rem 2rem}
+.footer-inner{max-width:1200px;margin:0 auto;display:flex;justify-content:space-between;align-items:center}
+.footer-inner p{font-size:.82rem;color:var(--t3)}.accent{color:var(--accent)}
+@media(max-width:768px){.nav-links{display:none}.product-hero{grid-template-columns:1fr}.prose-section{grid-template-columns:1fr}.footer-inner{flex-direction:column;gap:.5rem;text-align:center}}
+</style>
+</head>
+<body>
+<nav><div class="nav-inner"><a href="index.html" class="logo"><span class="mi">Mi</span>Choice Technology Systems</a><ul class="nav-links"><li><a href="index.html">Home</a></li><li><a href="aboutus.html">About</a></li><li><a href="products.html">Products</a></li><li><a href="services.html">Services</a></li><li><a href="support.html">Support</a></li><li><a href="contactus.html" class="nav-cta">Contact Us</a></li></ul></div></nav>
+
+<div class="breadcrumb"><a href="index.html">Home</a><span>›</span><a href="products.html">Products</a><span>›</span>miComs <span style="font-weight:400;font-size:.68em;opacity:.55">(COMS-PRO)</span></div>
+
+<div class="product-hero">
+  <div>
+    <div class="badge">miComs <span style="font-weight:400;font-size:.68em;opacity:.55">(COMS-PRO)</span></div>
+    <h1>Central Office Management Software</h1>
+    <p>COMS-PRO is the central nervous system of MiChoice deployments. It's the single data source that connects every cafeteria POS to the district central office — in real time, across the WAN, with bi-directional flow for F&amp;R processing, meal accountability, and government reporting.</p>
+    <div class="product-hero-actions">
+      <a href="contactus.html" class="btn-primary">Request a Demo</a>
+      <a href="products.html" class="btn-secondary">← All Products</a>
+    </div>
+  </div>
+  <div class="card-visual" style="padding:0;overflow:hidden;background:#0d0f14">
+<svg viewBox="0 0 380 260" xmlns="http://www.w3.org/2000/svg" style="width:100%;display:block">
+  <rect width="380" height="260" fill="#0d0f14"/>
+  <!-- Hub lines radiating out -->
+  <line x1="190" y1="130" x2="65" y2="65"  stroke="#2563eb" stroke-width="1.2" opacity="0.5" stroke-dasharray="4 3"/>
+  <line x1="190" y1="130" x2="315" y2="65"  stroke="#2563eb" stroke-width="1.2" opacity="0.5" stroke-dasharray="4 3"/>
+  <line x1="190" y1="130" x2="50"  y2="175" stroke="#2563eb" stroke-width="1.2" opacity="0.5" stroke-dasharray="4 3"/>
+  <line x1="190" y1="130" x2="330" y2="175" stroke="#2563eb" stroke-width="1.2" opacity="0.5" stroke-dasharray="4 3"/>
+  <line x1="190" y1="130" x2="190" y2="40"  stroke="#2563eb" stroke-width="1.5" opacity="0.6" stroke-dasharray="4 3"/>
+  <!-- Animated data dots on lines -->
+  <circle r="3" fill="#3b82f6" opacity="0.9">
+    <animateMotion dur="2.5s" repeatCount="indefinite" path="M 190 130 L 65 65"/>
+    <animate attributeName="opacity" values="0;1;0" dur="2.5s" repeatCount="indefinite"/>
+  </circle>
+  <circle r="3" fill="#3b82f6" opacity="0.9">
+    <animateMotion dur="2.1s" repeatCount="indefinite" path="M 190 130 L 315 65"/>
+    <animate attributeName="opacity" values="0;1;0" dur="2.1s" repeatCount="indefinite"/>
+  </circle>
+  <circle r="3" fill="#3b82f6" opacity="0.9">
+    <animateMotion dur="2.8s" repeatCount="indefinite" path="M 65 65 L 190 130"/>
+    <animate attributeName="opacity" values="0;1;0" dur="2.8s" repeatCount="indefinite"/>
+  </circle>
+  <circle r="3" fill="#93c5fd" opacity="0.9">
+    <animateMotion dur="1.9s" repeatCount="indefinite" path="M 330 175 L 190 130"/>
+    <animate attributeName="opacity" values="0;1;0" dur="1.9s" repeatCount="indefinite"/>
+  </circle>
+  <!-- Central server node -->
+  <rect x="158" y="100" width="64" height="60" rx="6" fill="#1e3a5c" stroke="#3b82f6" stroke-width="1.5"/>
+  <rect x="163" y="106" width="54" height="8" rx="2" fill="#0d2a4a"/>
+  <rect x="163" y="116" width="54" height="8" rx="2" fill="#0d2a4a"/>
+  <rect x="163" y="126" width="54" height="8" rx="2" fill="#0d2a4a"/>
+  <circle cx="175" cy="110" r="2" fill="#22c55e"/>
+  <circle cx="175" cy="120" r="2" fill="#22c55e"/>
+  <circle cx="175" cy="130" r="2" fill="#f59e0b"/>
+  <text x="190" y="150" fill="#93c5fd" font-size="7" font-family="Arial" text-anchor="middle" font-weight="bold">COMS-PRO</text>
+  <!-- School nodes -->
+  <g fill="#132033" stroke="#2563eb" stroke-width="1">
+    <!-- Top -->
+    <rect x="162" y="20" width="56" height="36" rx="4"/>
+    <text x="190" y="35" fill="#93c5fd" font-size="6.5" font-family="Arial" text-anchor="middle" font-weight="bold">District</text>
+    <text x="190" y="46" fill="#64748b" font-size="6" font-family="Arial" text-anchor="middle">Office</text>
+    <!-- Top-left -->
+    <rect x="35" y="45" width="60" height="36" rx="4"/>
+    <text x="65" y="60" fill="#93c5fd" font-size="6.5" font-family="Arial" text-anchor="middle" font-weight="bold">Lincoln</text>
+    <text x="65" y="71" fill="#64748b" font-size="6" font-family="Arial" text-anchor="middle">Elementary</text>
+    <!-- Top-right -->
+    <rect x="285" y="45" width="60" height="36" rx="4"/>
+    <text x="315" y="60" fill="#93c5fd" font-size="6.5" font-family="Arial" text-anchor="middle" font-weight="bold">Jefferson</text>
+    <text x="315" y="71" fill="#64748b" font-size="6" font-family="Arial" text-anchor="middle">Middle</text>
+    <!-- Bottom-left -->
+    <rect x="20" y="157" width="60" height="36" rx="4"/>
+    <text x="50" y="172" fill="#93c5fd" font-size="6.5" font-family="Arial" text-anchor="middle" font-weight="bold">Washington</text>
+    <text x="50" y="183" fill="#64748b" font-size="6" font-family="Arial" text-anchor="middle">High School</text>
+    <!-- Bottom-right -->
+    <rect x="300" y="157" width="60" height="36" rx="4"/>
+    <text x="330" y="172" fill="#93c5fd" font-size="6.5" font-family="Arial" text-anchor="middle" font-weight="bold">Roosevelt</text>
+    <text x="330" y="183" fill="#64748b" font-size="6" font-family="Arial" text-anchor="middle">Elementary</text>
+  </g>
+  <text x="190" y="240" fill="#4b6d90" font-size="8" font-family="Arial" text-anchor="middle">Real-Time · Bi-Directional · District-Wide</text>
+</svg>
+</div>
+    <h3>miComs <span style="font-weight:400;font-size:.68em;opacity:.55">(COMS-PRO)</span></h3>
+    <p>Central Office · Real-Time · District-Wide</p>
+  </div>
+</div>
+
+<div class="features-section">
+  <h2>Key Features</h2>
+  <div class="features-grid">
+    <div class="feature-item"><div class="fi-dot"></div><h4>Real-Time Bi-Directional Data</h4><p>COMS-PRO pushes and pulls data from every cafeteria POS across the district's WAN — automatically, continuously, without manual intervention.</p></div>
+    <div class="feature-item"><div class="fi-dot"></div><h4>Centralized F&amp;R Processing</h4><p>All free and reduced applications are processed at the district level in COMS-PRO and propagated in real time to every school POS.</p></div>
+    <div class="feature-item"><div class="fi-dot"></div><h4>District-Wide Meal Accountability</h4><p>Complete accountability across every school, every cafeteria, every transaction — from a single central interface.</p></div>
+    <div class="feature-item"><div class="fi-dot"></div><h4>Government Reporting</h4><p>Generates all required USDA and state-level reports directly from COMS-PRO — no manual data assembly from multiple systems.</p></div>
+    <div class="feature-item"><div class="fi-dot"></div><h4>Common Data Source</h4><p>One database. All modules share it. No synchronization jobs. No data mismatches between systems.</p></div>
+    <div class="feature-item"><div class="fi-dot"></div><h4>WAN Integration</h4><p>Designed for district-scale networks. Connects schools across the district's existing wide-area network infrastructure.</p></div>
+  </div>
+</div>
+
+<div class="prose-section">
+  <div class="prose">
+    <h3>The District Data Hub</h3>
+    <p>COMS-PRO serves as the focal point for all information flow throughout the MiChoice ecosystem. As an all-inclusive back office product, it provides the district child nutrition department with a common data source for every function — from F&amp;R processing to meal accountability to government reporting.</p>
+    <p>The system allows for bi-directional, real-time transfer of data between COMS-PRO and every MiChoice FAR-Apps and eMeal POS installation across the district's WAN. A status change at the central office is live at the serving line in minutes. A meal transaction at any school is visible at the central office immediately.</p>
+    <h3>Centralized F&amp;R Management</h3>
+    <p>Free and reduced eligibility is one of the most administratively intensive functions in school food service. COMS-PRO centralizes the entire workflow — application intake (via FAR-Apps and the online portal), determination, status assignment, and POS update — so that district staff manage the process from one system instead of coordinating across multiple schools and applications.</p>
+    <h3>Government Reporting Made Manageable</h3>
+    <p>USDA and state reporting requirements are complex and change regularly. COMS-PRO generates all required reports directly from its centralized database — no manual data collection from individual schools, no spreadsheet assembly, no last-minute scrambles. Audit trails are built in from day one.</p>
+  </div>
+  <div>
+    <div class="sidebar-card"><h4>Core Functions</h4><ul><li>Real-time POS data sync</li><li>F&amp;R application processing</li><li>Meal accountability tracking</li><li>Government report generation</li><li>District-wide WAN management</li><li>Central student database</li></ul></div>
+    <div class="sidebar-card"><h4>Integrates With</h4><ul><li>eMeal POS (all sites)</li><li>FAR-Apps</li><li>Online F&amp;R Portal</li><li>EZ-Task Inventory</li><li>mymealmoney.com</li></ul></div>
+  </div>
+</div>
+
+<footer><div class="footer-inner"><p>© 2026 <span class="accent">MiChoice Technology Systems, Inc.</span> All rights reserved.</p></div></footer>
+<script src="chat-widget.js" defer></script>
+</body>
+</html>

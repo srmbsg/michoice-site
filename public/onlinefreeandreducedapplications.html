@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Online Free & Reduced Application Portal — digital NSLP eligibility intake for K-12 school districts from MiChoice Technology Systems.">
+<title>Online F&R Applications | MiChoice Technology Systems</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--bg:#0a0a0a;--bg2:#111111;--bg3:#141414;--border:#1f1f1f;--border2:#2a2a2a;--accent:#3b82f6;--accent-d:#2563eb;--accent-bg:rgba(59,130,246,.08);--t1:#f5f5f5;--t2:#a3a3a3;--t3:#6b7280;--font:-apple-system,BlinkMacSystemFont,'Segoe UI',system-ui,sans-serif}
+body{font-family:var(--font);background:var(--bg);color:var(--t1);line-height:1.6}a{color:inherit;text-decoration:none}
+nav{background:var(--bg2);border-bottom:1px solid var(--border);padding:0 2rem;position:sticky;top:0;z-index:100}
+.nav-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:64px}
+.logo{font-size:1.2rem;font-weight:700;letter-spacing:-.02em}.logo .mi{color:var(--accent)}
+.nav-links{display:flex;gap:1.75rem;list-style:none}.nav-links a{color:var(--t2);font-size:.88rem;font-weight:500;transition:color .2s}.nav-links a:hover{color:var(--accent)}
+.nav-cta{background:var(--accent);color:#000 !important;padding:.4rem 1rem;border-radius:4px;font-weight:600 !important}.nav-cta:hover{background:var(--accent-d) !important;color:#000 !important}
+.breadcrumb{max-width:1200px;margin:0 auto;padding:1.5rem 2rem .5rem;font-size:.82rem;color:var(--t3)}.breadcrumb a{color:var(--accent)}.breadcrumb span{margin:0 .5rem}
+.product-hero{max-width:1200px;margin:0 auto;padding:1.5rem 2rem 3rem;display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
+.badge{display:inline-flex;align-items:center;background:var(--accent-bg);border:1px solid rgba(59,130,246,.25);color:var(--accent);font-size:.72rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:.3rem .7rem;border-radius:3px;margin-bottom:1rem}
+.product-hero h1{font-size:clamp(1.75rem,3.5vw,2.75rem);font-weight:800;letter-spacing:-.03em;margin-bottom:.75rem}
+.product-hero p{color:var(--t2);font-size:.95rem;line-height:1.8;margin-bottom:1.5rem}
+.product-hero-actions{display:flex;gap:1rem;flex-wrap:wrap}
+.btn-primary{background:var(--accent);color:#000;padding:.7rem 1.5rem;border-radius:5px;font-weight:700;font-size:.9rem;display:inline-block;transition:background .2s}.btn-primary:hover{background:var(--accent-d)}
+.btn-secondary{border:1px solid var(--border2);color:var(--t1);padding:.7rem 1.5rem;border-radius:5px;font-weight:600;font-size:.9rem;display:inline-block;transition:all .2s}.btn-secondary:hover{border-color:var(--accent);color:var(--accent)}
+.card-visual{background:var(--bg3);border:1px solid var(--border);border-radius:10px;padding:2rem;text-align:center}.big-icon{font-size:4rem;margin-bottom:1rem}
+.flow{max-width:1200px;margin:0 auto;padding:0 2rem}
+.flow h2{font-size:1.25rem;font-weight:700;margin-bottom:1.25rem}
+.flow-steps{display:flex;gap:0;align-items:stretch}
+.flow-step{flex:1;background:var(--bg3);border:1px solid var(--border);padding:1.25rem;text-align:center}
+.flow-step:first-child{border-radius:6px 0 0 6px}.flow-step:last-child{border-radius:0 6px 6px 0}
+.flow-arrow{display:flex;align-items:center;color:var(--accent);font-size:1.25rem;padding:0 .5rem;flex-shrink:0}
+.flow-step .f-num{font-size:1.5rem;font-weight:800;color:var(--accent);margin-bottom:.4rem}
+.flow-step h4{font-size:.85rem;font-weight:700;margin-bottom:.25rem}.flow-step p{font-size:.75rem;color:var(--t2);line-height:1.5}
+.benefits-strip{max-width:1200px;margin:0 auto;padding:3rem 2rem 0;display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
+.benefit{background:var(--bg3);border:1px solid var(--border);border-radius:6px;padding:1.5rem;text-align:center}
+.benefit .b-icon{font-size:1.75rem;margin-bottom:.75rem}.benefit h4{font-size:.95rem;font-weight:700;margin-bottom:.4rem}.benefit p{font-size:.83rem;color:var(--t2);line-height:1.6}
+.features-section{max-width:1200px;margin:0 auto;padding:4rem 2rem}
+.features-section h2{font-size:1.5rem;font-weight:800;letter-spacing:-.02em;margin-bottom:2rem}
+.features-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1rem}
+.feature-item{background:var(--bg3);border:1px solid var(--border);border-radius:6px;padding:1.5rem}
+.fi-dot{width:8px;height:8px;background:var(--accent);border-radius:50%;margin-bottom:.75rem}
+.feature-item h4{font-size:.95rem;font-weight:700;margin-bottom:.4rem}.feature-item p{font-size:.85rem;color:var(--t2);line-height:1.6}
+.prose-section{max-width:1200px;margin:0 auto;padding:2rem 2rem 5rem;display:grid;grid-template-columns:2fr 1fr;gap:4rem}
+.prose p{color:var(--t2);font-size:.92rem;line-height:1.8;margin-bottom:1.1rem}.prose h3{font-size:1.1rem;font-weight:700;margin:1.75rem 0 .75rem}.prose h3:first-child{margin-top:0}
+.sidebar-card{background:var(--bg3);border:1px solid var(--border);border-radius:8px;padding:1.5rem;margin-bottom:1.25rem}.sidebar-card h4{font-size:.82rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--t3);margin-bottom:.75rem}
+.sidebar-card ul{list-style:none}.sidebar-card li{font-size:.85rem;color:var(--t2);padding:.3rem 0;border-bottom:1px solid var(--border);display:flex;gap:.5rem}.sidebar-card li:last-child{border-bottom:none}.sidebar-card li::before{content:'▸';color:var(--accent);flex-shrink:0}
+footer{background:var(--bg2);border-top:1px solid var(--border);padding:2.5rem 2rem}.footer-inner{max-width:1200px;margin:0 auto;display:flex;justify-content:space-between;align-items:center}.footer-inner p{font-size:.82rem;color:var(--t3)}.accent{color:var(--accent)}
+@media(max-width:768px){.nav-links{display:none}.product-hero{grid-template-columns:1fr}.flow-steps{flex-direction:column}.flow-arrow{transform:rotate(90deg)}.benefits-strip{grid-template-columns:1fr}.prose-section{grid-template-columns:1fr}.footer-inner{flex-direction:column;gap:.5rem;text-align:center}}
+</style>
+</head>
+<body>
+<nav><div class="nav-inner"><a href="index.html" class="logo"><span class="mi">Mi</span>Choice Technology Systems</a><ul class="nav-links"><li><a href="index.html">Home</a></li><li><a href="aboutus.html">About</a></li><li><a href="products.html">Products</a></li><li><a href="services.html">Services</a></li><li><a href="support.html">Support</a></li><li><a href="contactus.html" class="nav-cta">Contact Us</a></li></ul></div></nav>
+<div class="breadcrumb"><a href="index.html">Home</a><span>›</span><a href="products.html">Products</a><span>›</span>Online F&amp;R Applications</div>
+
+<div class="product-hero">
+  <div>
+    <div class="badge">Online Portal</div>
+    <h1>Online Free &amp; Reduced Application Portal</h1>
+    <p>Families apply for free and reduced meal benefits directly online — no paper, no drop-off, no scanning. Applications submit digitally into FAR-Apps for immediate processing, determination, and real-time POS update. Districts close the loop faster, capture more federal funding, and eliminate paper handling entirely.</p>
+    <div class="product-hero-actions">
+      <a href="contactus.html" class="btn-primary">Request a Demo</a>
+      <a href="products.html" class="btn-secondary">← All Products</a>
+    </div>
+  </div>
+  <div class="card-visual" style="padding:0;overflow:hidden;background:#0d0f14">
+<svg viewBox="0 0 380 260" xmlns="http://www.w3.org/2000/svg" style="width:100%;display:block">
+  <rect width="380" height="260" fill="#0d0f14"/>
+  <!-- Laptop frame -->
+  <rect x="55" y="25" width="230" height="155" rx="8" fill="#0f1828" stroke="#1e3a5c" stroke-width="1.5"/>
+  <rect x="63" y="33" width="214" height="137" rx="3" fill="#0d1520"/>
+  <!-- Browser chrome -->
+  <rect x="63" y="33" width="214" height="18" rx="2" fill="#132033"/>
+  <circle cx="74" cy="42" r="3.5" fill="#7f1d1d" opacity="0.8"/>
+  <circle cx="84" cy="42" r="3.5" fill="#78350f" opacity="0.8"/>
+  <circle cx="94" cy="42" r="3.5" fill="#14532d" opacity="0.8"/>
+  <rect x="110" y="37" width="130" height="10" rx="3" fill="#0d1520" stroke="#1e3a5c" stroke-width="0.5"/>
+  <text x="175" y="44" fill="#4b6d90" font-size="6" font-family="Arial" text-anchor="middle">mydistrict.org/fr-application</text>
+  <!-- Application form -->
+  <rect x="67" y="56" width="206" height="110" rx="2" fill="#0d1520"/>
+  <text x="170" y="70" fill="#3b82f6" font-size="8" font-family="Arial" text-anchor="middle" font-weight="bold">Free &amp; Reduced Meal Application</text>
+  <!-- Form fields -->
+  <g font-size="6.5" font-family="Arial">
+    <text x="72" y="83" fill="#64748b">Student Name</text>
+    <rect x="72" y="86" width="90" height="10" rx="2" fill="#0f1828" stroke="#2563eb" stroke-width="0.5"/>
+    <text x="78" y="94" fill="#93c5fd">Alex Johnson</text>
+    <text x="170" y="83" fill="#64748b">Grade</text>
+    <rect x="170" y="86" width="40" height="10" rx="2" fill="#0f1828" stroke="#1e3a5c" stroke-width="0.5"/>
+    <text x="176" y="94" fill="#93c5fd">7th</text>
+    <text x="72" y="103" fill="#64748b">Household Size</text>
+    <rect x="72" y="106" width="60" height="10" rx="2" fill="#0f1828" stroke="#1e3a5c" stroke-width="0.5"/>
+    <text x="78" y="114" fill="#93c5fd">4 members</text>
+    <text x="145" y="103" fill="#64748b">Annual Income</text>
+    <rect x="145" y="106" width="70" height="10" rx="2" fill="#0f1828" stroke="#1e3a5c" stroke-width="0.5"/>
+    <text x="151" y="114" fill="#93c5fd">$34,500</text>
+    <text x="72" y="125" fill="#64748b">Benefit Program (SNAP/TANF)</text>
+    <rect x="72" y="128" width="10" height="10" rx="1" fill="#1e3a5c" stroke="#3b82f6" stroke-width="0.5"/>
+    <path d="M 74 133 L 77 136 L 82 128" stroke="#3b82f6" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+    <text x="87" y="136" fill="#93c5fd">Yes — SNAP enrolled</text>
+  </g>
+  <!-- Submit button -->
+  <rect x="72" y="143" width="196" height="16" rx="4" fill="#2563eb"/>
+  <text x="170" y="154" fill="white" font-size="8" font-family="Arial" text-anchor="middle" font-weight="bold">Submit Application  →</text>
+  <!-- Laptop base -->
+  <rect x="35" y="178" width="270" height="8" rx="3" fill="#0d1520" stroke="#1e3a5c" stroke-width="1"/>
+  <rect x="120" y="186" width="100" height="4" rx="2" fill="#0f1828"/>
+  <!-- Success indicator -->
+  <rect x="300" y="40" width="68" height="60" rx="6" fill="#14532d" stroke="#22c55e" stroke-width="1"/>
+  <circle cx="334" cy="63" r="14" fill="#1a4a2e"/>
+  <path d="M 323 63 L 330 70 L 345 55" stroke="#22c55e" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+  <text x="334" y="88" fill="#86efac" font-size="7" font-family="Arial" text-anchor="middle" font-weight="bold">Submitted</text>
+  <text x="334" y="97" fill="#4b9a6a" font-size="6" font-family="Arial" text-anchor="middle">→ FAR-Apps</text>
+  <text x="190" y="220" fill="#4b6d90" font-size="8" font-family="Arial" text-anchor="middle">Digital Intake · Zero Paper · Instant Processing</text>
+</svg>
+</div><h3>Online F&amp;R Portal</h3><p>Digital Intake · Zero Paper · Instant to FAR-Apps</p></div>
+</div>
+
+<div class="flow">
+  <h2>How the Online Application Process Works</h2>
+  <div class="flow-steps">
+    <div class="flow-step"><div class="f-num">1</div><h4>Family Visits Portal</h4><p>District-branded online application form</p></div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-step"><div class="f-num">2</div><h4>Completes Application</h4><p>Household income, student info, benefits</p></div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-step"><div class="f-num">3</div><h4>Submits Digitally</h4><p>Secure submission — no paper, no drop-off</p></div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-step"><div class="f-num">4</div><h4>FAR-Apps Processes</h4><p>Auto-determination runs immediately</p></div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-step"><div class="f-num">5</div><h4>Family Notified</h4><p>Approval or denial letter sent automatically</p></div>
+  </div>
+</div>
+
+<div class="benefits-strip">
+  <div class="benefit"><div class="b-icon">⚡</div><h4>Faster Determinations</h4><p>Online submissions enter FAR-Apps immediately — no paper handling delay between application and processing.</p></div>
+  <div class="benefit"><div class="b-icon">📄</div><h4>Zero Paper Handling</h4><p>No forms to collect, sort, scan, or file. The entire intake pipeline is digital from first submission.</p></div>
+  <div class="benefit"><div class="b-icon">💰</div><h4>Capture More Benefits</h4><p>Easier applications mean higher participation rates — more eligible families complete the process and more federal funding flows to the district.</p></div>
+</div>
+
+<div class="features-section">
+  <h2>Key Features</h2>
+  <div class="features-grid">
+    <div class="feature-item"><div class="fi-dot"></div><h4>District-Branded Portal</h4><p>Each district's online application portal is branded to match their identity — families see a familiar, trustworthy interface, not a generic third-party form.</p></div>
+    <div class="feature-item"><div class="fi-dot"></div><h4>Direct FAR-Apps Integration</h4><p>Submitted applications flow directly into FAR-Apps for processing. No manual handoff, no re-entry — the digital submission is the intake record.</p></div>
+    <div class="feature-item"><div class="fi-dot"></div><h4>Multi-Student Households</h4><p>A single application covers all students in the household. Families don't need to complete separate applications for each child.</p></div>
+    <div class="feature-item"><div class="fi-dot"></div><h4>Application Status Tracking</h4><p>Families can check the status of their submitted application online — reducing status inquiry calls to district offices.</p></div>
+    <div class="feature-item"><div class="fi-dot"></div><h4>Automated Notifications</h4><p>Determination letters — approval, denial, and verification requests — are generated and delivered automatically once FAR-Apps completes processing.</p></div>
+    <div class="feature-item"><div class="fi-dot"></div><h4>NSLP Compliance Built In</h4><p>The application form captures every data element required by NSLP regulations — income documentation, household size, benefit certifications, and required disclosures.</p></div>
+    <div class="feature-item"><div class="fi-dot"></div><h4>Secure Submission</h4><p>Applications are submitted over encrypted connections. Sensitive household income and benefit data is handled in compliance with applicable privacy requirements.</p></div>
+    <div class="feature-item"><div class="fi-dot"></div><h4>Primary Application Channel</h4><p>Districts can offer the online portal as the primary application channel — paper remains available for households without internet access.</p></div>
+  </div>
+</div>
+
+<div class="prose-section">
+  <div class="prose">
+    <h3>The Paper Application Problem</h3>
+    <p>For decades, free and reduced meal applications meant paper — forms sent home in backpacks, returned crumpled and sometimes incomplete, collected at the school office, sorted, batched, and manually entered into the eligibility system. Every step in that chain is labor, every step introduces delay, and every step is an opportunity for an application to be lost, misread, or miskeyed.</p>
+    <p>The online application portal eliminates every one of those steps. The family completes the form at home on any device. The submission is instant, complete, and already in the format FAR-Apps needs. The district receives a clean digital record the moment the family submits.</p>
+    <h3>Higher Participation, More Federal Funding</h3>
+    <p>Districts consistently find that easier application processes lead to higher participation from eligible families. When the barrier to applying is a paper form that has to be returned to school, families who are eligible but time-constrained often don't complete the process. When the application is online, available at any hour, completable in minutes, participation rates improve — and every additional properly processed application means additional federal reimbursement for the district.</p>
+    <h3>The FAR-Apps Connection</h3>
+    <p>The online portal is designed as the digital front end to FAR-Apps — not a standalone system. When a family submits online, the application flows directly into FAR-Apps' processing workflow. Determination runs. The result updates COMS-PRO and every cafeteria POS across the district in real time. The family receives notification. The entire cycle that once took days of paper handling now runs in hours — often same-day for completed applications.</p>
+  </div>
+  <div>
+    <div class="sidebar-card"><h4>Application Captures</h4><ul><li>Household size &amp; composition</li><li>Annual income by source</li><li>SNAP/TANF/FDPIR benefits</li><li>Foster/homeless/migrant status</li><li>All enrolled students</li><li>Required certifications &amp; signatures</li></ul></div>
+    <div class="sidebar-card"><h4>Compliance</h4><ul><li>NSLP eligibility criteria</li><li>Required disclosure statements</li><li>Verification procedure support</li><li>Federal reporting data capture</li><li>Full application audit trail</li></ul></div>
+    <div class="sidebar-card"><h4>Integrates With</h4><ul><li>FAR-Apps (direct)</li><li>COMS-PRO Central Office</li><li>eMeal POS (all sites)</li></ul></div>
+  </div>
+</div>
+
+<footer><div class="footer-inner"><p>© 2026 <span class="accent">MiChoice Technology Systems, Inc.</span> All rights reserved.</p></div></footer>
+<script src="chat-widget.js" defer></script>
+</body>
+</html>

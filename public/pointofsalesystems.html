@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="eMeal Touch Screen Point of Sale — MiChoice's cafeteria POS for K-12 school food service. Client/server, USDA compliant, comprehensive reporting.">
+<title>miMeal (eMeal) POS | MiChoice Technology Systems</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--bg:#0a0a0a;--bg2:#111111;--bg3:#141414;--bg4:#1a1a1a;--border:#1f1f1f;--border2:#2a2a2a;--accent:#3b82f6;--accent-d:#2563eb;--accent-bg:rgba(59,130,246,.08);--t1:#f5f5f5;--t2:#a3a3a3;--t3:#6b7280;--font:-apple-system,BlinkMacSystemFont,'Segoe UI',system-ui,sans-serif}
+body{font-family:var(--font);background:var(--bg);color:var(--t1);line-height:1.6}
+a{color:inherit;text-decoration:none}
+nav{background:var(--bg2);border-bottom:1px solid var(--border);padding:0 2rem;position:sticky;top:0;z-index:100}
+.nav-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:64px}
+.logo{font-size:1.2rem;font-weight:700;letter-spacing:-.02em}.logo .mi{color:var(--accent)}
+.nav-links{display:flex;gap:1.75rem;list-style:none}
+.nav-links a{color:var(--t2);font-size:.88rem;font-weight:500;transition:color .2s}
+.nav-links a:hover{color:var(--accent)}
+.nav-cta{background:var(--accent);color:#000 !important;padding:.4rem 1rem;border-radius:4px;font-weight:600 !important}
+.nav-cta:hover{background:var(--accent-d) !important;color:#000 !important}
+.breadcrumb{max-width:1200px;margin:0 auto;padding:1.5rem 2rem .5rem;font-size:.82rem;color:var(--t3)}
+.breadcrumb a{color:var(--accent);transition:opacity .2s}.breadcrumb a:hover{opacity:.7}
+.breadcrumb span{margin:0 .5rem}
+.product-hero{max-width:1200px;margin:0 auto;padding:1.5rem 2rem 3rem;display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
+.product-hero-text .badge{display:inline-flex;gap:.4rem;align-items:center;background:var(--accent-bg);border:1px solid rgba(59,130,246,.25);color:var(--accent);font-size:.72rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:.3rem .7rem;border-radius:3px;margin-bottom:1rem}
+.product-hero-text h1{font-size:clamp(1.75rem,3.5vw,2.75rem);font-weight:800;letter-spacing:-.03em;margin-bottom:.75rem}
+.product-hero-text p{color:var(--t2);font-size:.95rem;line-height:1.8;margin-bottom:1.5rem}
+.product-hero-actions{display:flex;gap:1rem;flex-wrap:wrap}
+.btn-primary{background:var(--accent);color:#000;padding:.7rem 1.5rem;border-radius:5px;font-weight:700;font-size:.9rem;display:inline-block;transition:background .2s}
+.btn-primary:hover{background:var(--accent-d)}
+.btn-secondary{border:1px solid var(--border2);color:var(--t1);padding:.7rem 1.5rem;border-radius:5px;font-weight:600;font-size:.9rem;display:inline-block;transition:all .2s}
+.btn-secondary:hover{border-color:var(--accent);color:var(--accent)}
+.product-card-visual{background:var(--bg3);border:1px solid var(--border);border-radius:10px;padding:2rem;text-align:center}
+.product-card-visual .big-icon{font-size:4rem;margin-bottom:1rem}
+.product-card-visual h3{font-size:1rem;font-weight:700;margin-bottom:.25rem}
+.product-card-visual p{font-size:.82rem;color:var(--t2)}
+.features-section{max-width:1200px;margin:0 auto;padding:4rem 2rem}
+.features-section h2{font-size:1.5rem;font-weight:800;letter-spacing:-.02em;margin-bottom:2rem}
+.features-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1rem}
+.feature-item{background:var(--bg3);border:1px solid var(--border);border-radius:6px;padding:1.5rem}
+.feature-item h4{font-size:.95rem;font-weight:700;margin-bottom:.4rem;color:var(--t1)}
+.feature-item p{font-size:.85rem;color:var(--t2);line-height:1.6}
+.feature-item .fi-dot{width:8px;height:8px;background:var(--accent);border-radius:50%;margin-bottom:.75rem}
+.prose-section{max-width:1200px;margin:0 auto;padding:2rem 2rem 4rem;display:grid;grid-template-columns:2fr 1fr;gap:4rem}
+.prose p{color:var(--t2);font-size:.92rem;line-height:1.8;margin-bottom:1.1rem}
+.prose h3{font-size:1.1rem;font-weight:700;margin:1.75rem 0 .75rem;letter-spacing:-.01em}
+.prose h3:first-child{margin-top:0}
+.sidebar-card{background:var(--bg3);border:1px solid var(--border);border-radius:8px;padding:1.5rem;margin-bottom:1.25rem}
+.sidebar-card h4{font-size:.85rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--t3);margin-bottom:.75rem}
+.sidebar-card ul{list-style:none}
+.sidebar-card li{font-size:.85rem;color:var(--t2);padding:.3rem 0;border-bottom:1px solid var(--border);display:flex;gap:.5rem;align-items:flex-start}
+.sidebar-card li:last-child{border-bottom:none}
+.sidebar-card li::before{content:'▸';color:var(--accent);flex-shrink:0}
+footer{background:var(--bg2);border-top:1px solid var(--border);padding:2.5rem 2rem}
+.footer-inner{max-width:1200px;margin:0 auto;display:flex;justify-content:space-between;align-items:center}
+.footer-inner p{font-size:.82rem;color:var(--t3)}.accent{color:var(--accent)}
+@media(max-width:768px){.nav-links{display:none}.product-hero{grid-template-columns:1fr}.prose-section{grid-template-columns:1fr}.footer-inner{flex-direction:column;gap:.5rem;text-align:center}}
+</style>
+</head>
+<body>
+<nav><div class="nav-inner"><a href="index.html" class="logo"><span class="mi">Mi</span>Choice Technology Systems</a><ul class="nav-links"><li><a href="index.html">Home</a></li><li><a href="aboutus.html">About</a></li><li><a href="products.html">Products</a></li><li><a href="services.html">Services</a></li><li><a href="support.html">Support</a></li><li><a href="contactus.html" class="nav-cta">Contact Us</a></li></ul></div></nav>
+
+<div class="breadcrumb"><a href="index.html">Home</a><span>›</span><a href="products.html">Products</a><span>›</span>miMeal <span style="font-weight:400;font-size:.68em;opacity:.55">(eMeal)</span> POS</div>
+
+<div class="product-hero">
+  <div class="product-hero-text">
+    <div class="badge">miMeal <span style="font-weight:400;font-size:.68em;opacity:.55">(eMeal)</span></div>
+    <h1>Touch Screen Point of Sale System</h1>
+    <p>The serving line runs on eMeal. MiChoice's flagship cafeteria POS combines speed, accuracy, and full USDA compliance in a client/server system that operates on any Windows-based touch screen PC.</p>
+    <div class="product-hero-actions">
+      <a href="contactus.html" class="btn-primary">Request a Demo</a>
+      <a href="products.html" class="btn-secondary">← All Products</a>
+    </div>
+  </div>
+  <div class="product-card-visual" style="padding:0;overflow:hidden;border-radius:10px;">
+<svg viewBox="0 0 560 382" xmlns="http://www.w3.org/2000/svg" style="display:block;width:100%;height:auto;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif">
+  <!-- Outer bezel -->
+  <rect width="560" height="382" fill="#111827"/>
+  <!-- Title bar -->
+  <rect x="0" y="0" width="560" height="22" fill="#1e3a5f"/>
+  <text x="10" y="15" fill="#e2e8f0" font-size="11" font-weight="700">eMeal POS</text>
+  <text x="82" y="15" fill="#94a3b8" font-size="11">— ONLINE MODE</text>
+  <circle cx="536" cy="11" r="5" fill="#22c55e"><animate attributeName="opacity" values="1;0.3;1" dur="2s" repeatCount="indefinite"/></circle>
+  <text x="524" y="15" fill="#22c55e" font-size="7.5" text-anchor="end">LIVE</text>
+  <!-- LEFT PANEL -->
+  <rect x="0" y="22" width="110" height="336" fill="#0f172a"/>
+  <rect x="4" y="26" width="102" height="15" fill="#1e293b" rx="2"/>
+  <text x="55" y="37" fill="#475569" font-size="7.5" text-anchor="middle">Student ID / PIN</text>
+  <text x="55" y="56" fill="#f1f5f9" font-size="10" font-weight="700" text-anchor="middle">Ace Smith</text>
+  <rect x="22" y="61" width="66" height="56" fill="#1e3a5f" rx="3"/>
+  <text x="55" y="86" fill="#3b82f6" font-size="9" text-anchor="middle">PHOTO</text>
+  <text x="55" y="100" fill="#60a5fa" font-size="7.5" text-anchor="middle">ID: 14823</text>
+  <rect x="21" y="123" width="68" height="14" fill="#1d4ed8" rx="2"/>
+  <text x="55" y="134" fill="#dbeafe" font-size="8.5" font-weight="700" text-anchor="middle">FULL PAY</text>
+  <rect x="4" y="142" width="102" height="15" fill="#1e293b" rx="2"/>
+  <text x="55" y="153" fill="#93c5fd" font-size="8.5" text-anchor="middle">Accounts</text>
+  <rect x="4" y="160" width="102" height="15" fill="#1e293b" rx="2"/>
+  <text x="55" y="171" fill="#93c5fd" font-size="8.5" text-anchor="middle">Show Roster</text>
+  <rect x="4" y="178" width="102" height="15" fill="#7f1d1d" rx="2"/>
+  <text x="55" y="189" fill="#fca5a5" font-size="7.5" text-anchor="middle">Exit Meal Service</text>
+  <!-- CENTER PANEL -->
+  <rect x="110" y="22" width="320" height="336" fill="#0d1117"/>
+  <!-- Row 1 y=23 h=48 -->
+  <rect x="111" y="23" width="62" height="47" fill="#1c2432" stroke="#1f2937" stroke-width="0.5"/><text x="142" y="44" fill="#e2e8f0" font-size="7.5" text-anchor="middle">Taco Salad</text><text x="142" y="56" fill="#3b82f6" font-size="7" text-anchor="middle">$2.50</text>
+  <rect x="175" y="23" width="62" height="47" fill="#1c2432" stroke="#1f2937" stroke-width="0.5"/><text x="206" y="44" fill="#e2e8f0" font-size="7.5" text-anchor="middle">Chef Salad</text><text x="206" y="56" fill="#3b82f6" font-size="7" text-anchor="middle">$2.75</text>
+  <rect x="239" y="23" width="62" height="47" fill="#1c2432" stroke="#1f2937" stroke-width="0.5"/><text x="270" y="44" fill="#e2e8f0" font-size="7.5" text-anchor="middle">Small Salad</text><text x="270" y="56" fill="#3b82f6" font-size="7" text-anchor="middle">$1.50</text>
+  <rect x="303" y="23" width="62" height="47" fill="#1c2432" stroke="#1f2937" stroke-width="0.5"/><text x="334" y="44" fill="#e2e8f0" font-size="7.5" text-anchor="middle">Ice Cream</text><text x="334" y="56" fill="#3b82f6" font-size="7" text-anchor="middle">$0.50</text>
+  <rect x="367" y="23" width="62" height="47" fill="#1c2432" stroke="#1f2937" stroke-width="0.5"/><text x="398" y="44" fill="#e2e8f0" font-size="7.5" text-anchor="middle">Spirit Drink</text><text x="398" y="56" fill="#3b82f6" font-size="7" text-anchor="middle">$1.00</text>
+  <!-- Row 2 y=72 -->
+  <rect x="111" y="72" width="62" height="47" fill="#1c2432" stroke="#1f2937" stroke-width="0.5"/><text x="142" y="93" fill="#e2e8f0" font-size="7.5" text-anchor="middle">Chili Bowl</text><text x="142" y="105" fill="#3b82f6" font-size="7" text-anchor="middle">$2.00</text>
+  <rect x="175" y="72" width="62" height="47" fill="#1c2432" stroke="#1f2937" stroke-width="0.5"/><text x="206" y="93" fill="#e2e8f0" font-size="7.5" text-anchor="middle">Tacos</text><text x="206" y="105" fill="#3b82f6" font-size="7" text-anchor="middle">$2.25</text>
+  <rect x="239" y="72" width="62" height="47" fill="#1c2432" stroke="#1f2937" stroke-width="0.5"/><text x="270" y="93" fill="#e2e8f0" font-size="7.5" text-anchor="middle">Burrito</text><text x="270" y="105" fill="#3b82f6" font-size="7" text-anchor="middle">$2.25</text>
+  <rect x="303" y="72" width="62" height="47" fill="#1c2432" stroke="#1f2937" stroke-width="0.5"/><text x="334" y="93" fill="#e2e8f0" font-size="7.5" text-anchor="middle">Pizza Slice</text><text x="334" y="105" fill="#3b82f6" font-size="7" text-anchor="middle">$2.00</text>
+  <rect x="367" y="72" width="62" height="47" fill="#1c2432" stroke="#1f2937" stroke-width="0.5"/><text x="398" y="93" fill="#e2e8f0" font-size="7.5" text-anchor="middle">Cookie</text><text x="398" y="105" fill="#3b82f6" font-size="7" text-anchor="middle">$0.50</text>
+  <!-- Row 3 y=121 -->
+  <rect x="111" y="121" width="62" height="47" fill="#1c2432" stroke="#1f2937" stroke-width="0.5"/><text x="142" y="142" fill="#e2e8f0" font-size="7.5" text-anchor="middle">Baked Fries</text><text x="142" y="154" fill="#3b82f6" font-size="7" text-anchor="middle">$0.75</text>
+  <rect x="175" y="121" width="62" height="47" fill="#1c2432" stroke="#1f2937" stroke-width="0.5"/><text x="206" y="141" fill="#e2e8f0" font-size="7" text-anchor="middle">Baked</text><text x="206" y="150" fill="#e2e8f0" font-size="7" text-anchor="middle">Potato</text><text x="206" y="161" fill="#3b82f6" font-size="7" text-anchor="middle">$1.25</text>
+  <rect x="239" y="121" width="62" height="47" fill="#1c2432" stroke="#1f2937" stroke-width="0.5"/><text x="270" y="141" fill="#e2e8f0" font-size="7" text-anchor="middle">Steak</text><text x="270" y="150" fill="#e2e8f0" font-size="7" text-anchor="middle">Fingers</text><text x="270" y="161" fill="#3b82f6" font-size="7" text-anchor="middle">$2.50</text>
+  <rect x="303" y="121" width="62" height="47" fill="#1c2432" stroke="#1f2937" stroke-width="0.5"/><text x="334" y="142" fill="#e2e8f0" font-size="7.5" text-anchor="middle">Pizza Small</text><text x="334" y="154" fill="#3b82f6" font-size="7" text-anchor="middle">$1.75</text>
+  <rect x="367" y="121" width="62" height="47" fill="#1c2432" stroke="#1f2937" stroke-width="0.5"/><text x="398" y="141" fill="#e2e8f0" font-size="7" text-anchor="middle">Bread</text><text x="398" y="150" fill="#e2e8f0" font-size="7" text-anchor="middle">Extra</text><text x="398" y="161" fill="#3b82f6" font-size="7" text-anchor="middle">$0.25</text>
+  <!-- Row 4 y=170 -->
+  <rect x="111" y="170" width="62" height="47" fill="#1c2432" stroke="#1f2937" stroke-width="0.5"/><text x="142" y="191" fill="#e2e8f0" font-size="7.5" text-anchor="middle">Fruit</text><text x="142" y="203" fill="#3b82f6" font-size="7" text-anchor="middle">$0.50</text>
+  <rect x="175" y="170" width="62" height="47" fill="#1c2432" stroke="#1f2937" stroke-width="0.5"/><text x="206" y="189" fill="#e2e8f0" font-size="7" text-anchor="middle">Chicken</text><text x="206" y="198" fill="#e2e8f0" font-size="7" text-anchor="middle">Sandw</text><text x="206" y="209" fill="#3b82f6" font-size="7" text-anchor="middle">$2.50</text>
+  <rect x="239" y="170" width="62" height="47" fill="#1c2432" stroke="#1f2937" stroke-width="0.5"/><text x="270" y="189" fill="#e2e8f0" font-size="7" text-anchor="middle">Chicken</text><text x="270" y="198" fill="#e2e8f0" font-size="7" text-anchor="middle">Fingers</text><text x="270" y="209" fill="#3b82f6" font-size="7" text-anchor="middle">$2.25</text>
+  <rect x="303" y="170" width="62" height="47" fill="#1c2432" stroke="#1f2937" stroke-width="0.5"/><text x="334" y="191" fill="#e2e8f0" font-size="7.5" text-anchor="middle">Large Soup</text><text x="334" y="203" fill="#3b82f6" font-size="7" text-anchor="middle">$1.75</text>
+  <rect x="367" y="170" width="62" height="47" fill="#1c2432" stroke="#1f2937" stroke-width="0.5"/><text x="398" y="191" fill="#e2e8f0" font-size="7.5" text-anchor="middle">Small Soup</text><text x="398" y="203" fill="#3b82f6" font-size="7" text-anchor="middle">$1.25</text>
+  <!-- Row 5 y=219 -->
+  <rect x="111" y="219" width="62" height="47" fill="#1c2432" stroke="#1f2937" stroke-width="0.5"/><text x="142" y="241" fill="#e2e8f0" font-size="7" text-anchor="middle">Ham</text><text x="142" y="250" fill="#e2e8f0" font-size="7" text-anchor="middle">Burger</text><text x="142" y="261" fill="#3b82f6" font-size="7" text-anchor="middle">$2.25</text>
+  <rect x="175" y="219" width="62" height="47" fill="#1c2432" stroke="#1f2937" stroke-width="0.5"/><text x="206" y="241" fill="#e2e8f0" font-size="7" text-anchor="middle">Cheese</text><text x="206" y="250" fill="#e2e8f0" font-size="7" text-anchor="middle">Burger</text><text x="206" y="261" fill="#3b82f6" font-size="7" text-anchor="middle">$2.50</text>
+  <rect x="239" y="219" width="62" height="47" fill="#1c2432" stroke="#1f2937" stroke-width="0.5"/><text x="270" y="241" fill="#e2e8f0" font-size="7.5" text-anchor="middle">Hot Dog</text><text x="270" y="253" fill="#3b82f6" font-size="7" text-anchor="middle">$1.75</text>
+  <rect x="303" y="219" width="62" height="47" fill="#1c2432" stroke="#1f2937" stroke-width="0.5"/><text x="334" y="241" fill="#e2e8f0" font-size="7.5" text-anchor="middle">Corn Dog</text><text x="334" y="253" fill="#3b82f6" font-size="7" text-anchor="middle">$1.75</text>
+  <rect x="367" y="219" width="62" height="47" fill="#1c2432" stroke="#1f2937" stroke-width="0.5"/><text x="398" y="241" fill="#e2e8f0" font-size="7.5" text-anchor="middle">Milk</text><text x="398" y="253" fill="#3b82f6" font-size="7" text-anchor="middle">$0.40</text>
+  <!-- Row 6 y=268 -->
+  <rect x="111" y="268" width="62" height="47" fill="#1c2432" stroke="#1f2937" stroke-width="0.5"/><text x="142" y="290" fill="#e2e8f0" font-size="7.5" text-anchor="middle">Extra Veg</text><text x="142" y="302" fill="#3b82f6" font-size="7" text-anchor="middle">$0.25</text>
+  <rect x="175" y="268" width="62" height="47" fill="#1c2432" stroke="#1f2937" stroke-width="0.5"/><text x="206" y="290" fill="#e2e8f0" font-size="7.5" text-anchor="middle">Juice</text><text x="206" y="302" fill="#3b82f6" font-size="7" text-anchor="middle">$0.50</text>
+  <rect x="239" y="268" width="62" height="47" fill="#1c2432" stroke="#1f2937" stroke-width="0.5"/><text x="270" y="290" fill="#e2e8f0" font-size="7.5" text-anchor="middle">Tea</text><text x="270" y="302" fill="#3b82f6" font-size="7" text-anchor="middle">$0.50</text>
+  <rect x="303" y="268" width="62" height="47" fill="#1c2432" stroke="#1f2937" stroke-width="0.5"/><text x="334" y="290" fill="#e2e8f0" font-size="7.5" text-anchor="middle">Coffee</text><text x="334" y="302" fill="#3b82f6" font-size="7" text-anchor="middle">$0.75</text>
+  <rect x="367" y="268" width="62" height="47" fill="#1c2432" stroke="#1f2937" stroke-width="0.5"/><text x="398" y="289" fill="#e2e8f0" font-size="7" text-anchor="middle">Extra</text><text x="398" y="298" fill="#e2e8f0" font-size="7" text-anchor="middle">Plate</text><text x="398" y="309" fill="#3b82f6" font-size="7" text-anchor="middle">$0.50</text>
+  <!-- Payment row y=317 h=22 -->
+  <rect x="111" y="317" width="62" height="22" fill="#15803d" rx="1"/><text x="142" y="332" fill="#dcfce7" font-size="8" font-weight="700" text-anchor="middle">FULL PAY</text>
+  <rect x="175" y="317" width="62" height="22" fill="#1d4ed8" rx="1"/><text x="206" y="332" fill="#dbeafe" font-size="8" font-weight="700" text-anchor="middle">REDUCED</text>
+  <rect x="239" y="317" width="62" height="22" fill="#6d28d9" rx="1"/><text x="270" y="332" fill="#ede9fe" font-size="8" font-weight="700" text-anchor="middle">FREE</text>
+  <rect x="303" y="317" width="62" height="22" fill="#374151" rx="1"/><text x="334" y="332" fill="#d1d5db" font-size="8" font-weight="700" text-anchor="middle">ADULT</text>
+  <rect x="367" y="317" width="62" height="22" fill="#374151" rx="1"/><text x="398" y="332" fill="#d1d5db" font-size="7.5" font-weight="700" text-anchor="middle">EMPLOYEE</text>
+  <!-- RIGHT PANEL -->
+  <rect x="430" y="22" width="130" height="336" fill="#0f172a"/>
+  <text x="495" y="42" fill="#64748b" font-size="7.5" text-anchor="middle">ACCOUNT BALANCE</text>
+  <rect x="434" y="46" width="122" height="32" fill="#14532d" rx="3"/>
+  <text x="495" y="68" fill="#4ade80" font-size="22" font-weight="800" text-anchor="middle">$4.85</text>
+  <text x="434" y="95" fill="#475569" font-size="7.5">RECENT TRANSACTIONS</text>
+  <line x1="434" y1="99" x2="556" y2="99" stroke="#1f2937" stroke-width="0.5"/>
+  <text x="434" y="111" fill="#94a3b8" font-size="7.5">Pizza Slice</text><text x="556" y="111" fill="#f87171" font-size="7.5" text-anchor="end">-$2.00</text>
+  <text x="434" y="123" fill="#94a3b8" font-size="7.5">Milk</text><text x="556" y="123" fill="#f87171" font-size="7.5" text-anchor="end">-$0.40</text>
+  <text x="434" y="135" fill="#94a3b8" font-size="7.5">Cookie</text><text x="556" y="135" fill="#f87171" font-size="7.5" text-anchor="end">-$0.50</text>
+  <line x1="434" y1="140" x2="556" y2="140" stroke="#1f2937" stroke-width="0.5"/>
+  <text x="434" y="152" fill="#e2e8f0" font-size="8" font-weight="600">Subtotal</text><text x="556" y="152" fill="#f87171" font-size="8" text-anchor="end">-$2.90</text>
+  <!-- Bottom toolbar y=358 h=24 -->
+  <rect x="0" y="358" width="560" height="24" fill="#0f172a"/>
+  <rect x="1" y="359" width="60" height="21" fill="#1e293b" rx="2"/><text x="31" y="374" fill="#94a3b8" font-size="7" text-anchor="middle">Multiply</text>
+  <rect x="63" y="359" width="60" height="21" fill="#1e293b" rx="2"/><text x="93" y="374" fill="#94a3b8" font-size="7" text-anchor="middle">Correction</text>
+  <rect x="125" y="359" width="60" height="21" fill="#1e293b" rx="2"/><text x="155" y="374" fill="#94a3b8" font-size="7" text-anchor="middle">Tax</text>
+  <rect x="187" y="359" width="60" height="21" fill="#1e293b" rx="2"/><text x="217" y="374" fill="#94a3b8" font-size="7" text-anchor="middle">Items Sold</text>
+  <rect x="249" y="359" width="62" height="21" fill="#1e293b" rx="2"/><text x="280" y="374" fill="#94a3b8" font-size="7" text-anchor="middle">Mark Tape</text>
+  <rect x="313" y="359" width="60" height="21" fill="#1e293b" rx="2"/><text x="343" y="374" fill="#94a3b8" font-size="7" text-anchor="middle">Pay Cash</text>
+  <rect x="375" y="359" width="60" height="21" fill="#1e293b" rx="2"/><text x="405" y="374" fill="#94a3b8" font-size="7" text-anchor="middle">Total Debit</text>
+  <rect x="437" y="359" width="60" height="21" fill="#1e293b" rx="2"/><text x="467" y="374" fill="#94a3b8" font-size="7" text-anchor="middle">Block Auto</text>
+  <rect x="499" y="359" width="60" height="21" fill="#7f1d1d" rx="2"/><text x="529" y="374" fill="#fca5a5" font-size="7" text-anchor="middle">Void/Search</text>
+</svg>
+  </div>
+</div>
+
+<div class="features-section">
+  <h2>Key Features</h2>
+  <div class="features-grid">
+    <div class="feature-item"><div class="fi-dot"></div><h4>Touch Screen Operation</h4><p>Runs on any Windows-based touch screen PC — no proprietary hardware required. Use existing equipment or new.</p></div>
+    <div class="feature-item"><div class="fi-dot"></div><h4>Client/Server Architecture</h4><p>Robust client/server design ensures reliability at every serving station while maintaining centralized data integrity.</p></div>
+    <div class="feature-item"><div class="fi-dot"></div><h4>Real-Time Eligibility</h4><p>Live connection to COMS-PRO verifies student eligibility status on every transaction — free, reduced, or full price.</p></div>
+    <div class="feature-item"><div class="fi-dot"></div><h4>Comprehensive Reporting</h4><p>A full library of child nutrition management reports — meal counts, revenue, participation rates, and more.</p></div>
+    <div class="feature-item"><div class="fi-dot"></div><h4>USDA Compliance</h4><p>Every transaction is recorded to meet applicable government regulations and NSLP reporting requirements.</p></div>
+    <div class="feature-item"><div class="fi-dot"></div><h4>Lunch Line Efficiency</h4><p>Designed for throughput. Fast transaction times mean shorter lines and more time for students to eat.</p></div>
+    <div class="feature-item"><div class="fi-dot"></div><h4>Serving Line Accounting</h4><p>Complete serving line accountability — every meal transaction is logged, timestamped, and traceable.</p></div>
+    <div class="feature-item"><div class="fi-dot"></div><h4>Multi-School Integration</h4><p>Connects across the district's WAN via COMS-PRO. Central office visibility into every cafeteria in real time.</p></div>
+  </div>
+</div>
+
+<div class="prose-section">
+  <div class="prose">
+    <h3>How eMeal Works</h3>
+    <p>eMeal operates as a client/server Point of Sale program on any brand of Windows-based touch screen PC. The touch interface is designed for the realities of a cafeteria environment — gloved hands, fast transactions, minimal training required for serving line staff.</p>
+    <p>At the serving line, the system identifies the student (via PIN or ID card), retrieves their eligibility status in real time from COMS-PRO, records the transaction, and updates account balances instantly. The entire process takes seconds per student.</p>
+    <h3>Integration with the MiChoice Suite</h3>
+    <p>eMeal is the front end of the MiChoice ecosystem. It connects in real time to COMS-PRO (Central Office Management) for eligibility status and district reporting, to FAR-Apps for free and reduced status updates, and to mymealmoney.com for balance pre-payments made by parents online.</p>
+    <p>When a parent pays online at 7pm, the balance is available at the serving line the next morning. When an eligibility determination changes, the new status is live at the POS within minutes — not days.</p>
+    <h3>Reporting Capabilities</h3>
+    <p>eMeal generates a comprehensive library of child nutrition management reports — daily meal counts by category, revenue reconciliation, participation rates by school or district, reimbursable meal tracking, and more. Everything your child nutrition director needs for USDA reporting and operational decision-making.</p>
+  </div>
+  <div>
+    <div class="sidebar-card">
+      <h4>System Requirements</h4>
+      <ul>
+        <li>Any Windows-based PC</li>
+        <li>Touch screen display</li>
+        <li>Network connectivity (LAN/WAN)</li>
+        <li>Connection to COMS-PRO server</li>
+      </ul>
+    </div>
+    <div class="sidebar-card">
+      <h4>Integrates With</h4>
+      <ul>
+        <li>COMS-PRO Central Office</li>
+        <li>FAR-Apps F&amp;R Processing</li>
+        <li>mymealmoney.com Payments</li>
+        <li>EZ-Task Inventory</li>
+        <li>ETC Time &amp; Attendance</li>
+      </ul>
+    </div>
+    <div class="sidebar-card">
+      <h4>Compliance</h4>
+      <ul>
+        <li>USDA NSLP requirements</li>
+        <li>Free &amp; Reduced eligibility</li>
+        <li>Government meal reporting</li>
+        <li>Reimbursable meal tracking</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<footer><div class="footer-inner"><p>© 2026 <span class="accent">MiChoice Technology Systems, Inc.</span> All rights reserved.</p></div></footer>
+<script src="chat-widget.js" defer></script>
+</body>
+</html>

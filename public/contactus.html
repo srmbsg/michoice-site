@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Contact MiChoice Technology Systems — request a demo, ask about our K-12 food service software, or reach our support team.">
+<title>Contact Us | MiChoice Technology Systems</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --bg:#0a0a0a;--bg2:#111111;--bg3:#141414;--bg4:#1a1a1a;
+  --border:#1f1f1f;--border2:#2a2a2a;
+  --accent:#3b82f6;--accent-d:#2563eb;--accent-bg:rgba(59,130,246,.08);
+  --t1:#f5f5f5;--t2:#a3a3a3;--t3:#6b7280;
+  --font:-apple-system,BlinkMacSystemFont,'Segoe UI',system-ui,sans-serif;
+}
+body{font-family:var(--font);background:var(--bg);color:var(--t1);line-height:1.6}
+a{color:inherit;text-decoration:none}
+nav{background:var(--bg2);border-bottom:1px solid var(--border);padding:0 2rem;position:sticky;top:0;z-index:100}
+.nav-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:64px}
+.logo{font-size:1.2rem;font-weight:700;letter-spacing:-.02em}.logo .mi{color:var(--accent)}
+.nav-links{display:flex;gap:1.75rem;list-style:none}
+.nav-links a{color:var(--t2);font-size:.88rem;font-weight:500;transition:color .2s}
+.nav-links a:hover,.nav-links a.active{color:var(--accent)}
+.nav-cta{background:var(--accent);color:#000 !important;padding:.4rem 1rem;border-radius:4px;font-weight:600 !important}
+.nav-cta:hover{background:var(--accent-d) !important;color:#000 !important}
+
+.page-hero{max-width:1200px;margin:0 auto;padding:4rem 2rem 3rem}
+.eyebrow{color:var(--accent);font-size:.78rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-bottom:.75rem}
+.page-hero h1{font-size:clamp(2rem,4vw,3rem);font-weight:800;letter-spacing:-.03em;margin-bottom:.75rem}
+.page-hero p{color:var(--t2);font-size:1rem;max-width:640px;line-height:1.75}
+
+.contact-layout{max-width:1200px;margin:0 auto;padding:3rem 2rem 6rem;display:grid;grid-template-columns:1.5fr 1fr;gap:5rem;align-items:start}
+
+.contact-form label{display:block;font-size:.82rem;font-weight:600;color:var(--t2);margin-bottom:.4rem;letter-spacing:.02em}
+.contact-form input,
+.contact-form select,
+.contact-form textarea{width:100%;background:var(--bg3);border:1px solid var(--border2);border-radius:5px;padding:.75rem 1rem;color:var(--t1);font-family:var(--font);font-size:.92rem;margin-bottom:1.25rem;transition:border-color .2s;outline:none}
+.contact-form input:focus,
+.contact-form select:focus,
+.contact-form textarea:focus{border-color:var(--accent)}
+.contact-form textarea{min-height:130px;resize:vertical}
+.contact-form select{cursor:pointer}
+.contact-form select option{background:var(--bg3);color:var(--t1)}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.btn-submit{width:100%;background:var(--accent);color:#000;padding:.85rem;border-radius:5px;font-weight:700;font-size:.95rem;border:none;cursor:pointer;font-family:var(--font);transition:background .2s;margin-top:.25rem}
+.btn-submit:hover{background:var(--accent-d)}
+
+.contact-sidebar h3{font-size:1rem;font-weight:700;margin-bottom:1.5rem;letter-spacing:.04em;text-transform:uppercase;color:var(--t3)}
+.contact-info-item{display:flex;gap:1rem;align-items:flex-start;margin-bottom:1.75rem}
+.contact-info-item .ci-icon{width:40px;height:40px;background:var(--accent-bg);border-radius:6px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.contact-info-item .ci-icon svg{width:18px;height:18px;stroke:var(--accent);fill:none;stroke-width:1.75;stroke-linecap:round;stroke-linejoin:round}
+.contact-info-item h4{font-size:.88rem;font-weight:700;margin-bottom:.25rem}
+.contact-info-item p,.contact-info-item a{font-size:.85rem;color:var(--t2);transition:color .2s}
+.contact-info-item a:hover{color:var(--accent)}
+
+.contact-divider{border:none;border-top:1px solid var(--border);margin:2rem 0}
+
+.contact-note{background:var(--accent-bg);border:1px solid rgba(59,130,246,.2);border-radius:6px;padding:1.25rem;margin-top:2rem}
+.contact-note p{font-size:.85rem;color:var(--t2);line-height:1.65}
+.contact-note strong{color:var(--accent)}
+
+footer{background:var(--bg2);border-top:1px solid var(--border);padding:2.5rem 2rem}
+.footer-inner{max-width:1200px;margin:0 auto;display:flex;justify-content:space-between;align-items:center}
+.footer-inner p{font-size:.82rem;color:var(--t3)}.accent{color:var(--accent)}
+@media(max-width:768px){
+  .nav-links{display:none}
+  .contact-layout{grid-template-columns:1fr}
+  .form-row{grid-template-columns:1fr}
+  .footer-inner{flex-direction:column;gap:.5rem;text-align:center}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="logo"><span class="mi">Mi</span>Choice Technology Systems</a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="aboutus.html">About</a></li>
+      <li><a href="products.html">Products</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="support.html">Support</a></li>
+      <li><a href="contactus.html" class="active nav-cta">Contact Us</a></li>
+    </ul>
+  </div>
+</nav>
+
+<div class="page-hero">
+  <div class="eyebrow">Contact</div>
+  <h1>Let's Talk Food Service.</h1>
+  <p>Whether you're evaluating a full suite deployment, a single module, or just want to see what MiChoice can do for your district — reach out. A real person will respond.</p>
+</div>
+
+<div class="contact-layout">
+
+  <div>
+    <form class="contact-form" id="contactForm" onsubmit="return submitContact(event);">
+      <div class="form-row">
+        <div>
+          <label for="fname">First Name</label>
+          <input type="text" id="fname" placeholder="Jane">
+        </div>
+        <div>
+          <label for="lname">Last Name</label>
+          <input type="text" id="lname" placeholder="Smith">
+        </div>
+      </div>
+      <label for="email">Email Address</label>
+      <input type="email" id="email" placeholder="jane.smith@district.k12.us">
+      <label for="phone">Phone Number</label>
+      <input type="tel" id="phone" placeholder="(555) 000-0000">
+      <label for="district">School District / Organization</label>
+      <input type="text" id="district" placeholder="Anytown ISD">
+      <label for="state">State</label>
+      <input type="text" id="state" placeholder="Texas">
+      <label for="inquiry">What are you looking for?</label>
+      <select id="inquiry">
+        <option value="" disabled selected>Select inquiry type</option>
+        <option>Full suite evaluation / demo</option>
+        <option>Specific product inquiry</option>
+        <option>Current customer support</option>
+        <option>Implementation / installation</option>
+        <option>Training</option>
+        <option>Partnership / reseller inquiry</option>
+        <option>Other</option>
+      </select>
+      <label for="message">Tell us about your district's needs</label>
+      <textarea id="message" placeholder="Number of schools, current systems in use, what's working and what isn't..."></textarea>
+      <button type="submit" class="btn-submit">Send Message →</button>
+    </form>
+  </div>
+
+  <div class="contact-sidebar">
+    <h3>Get in Touch</h3>
+
+    <div class="contact-info-item">
+      <div class="ci-icon">
+        <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.42 2 2 0 0 1 3.6 1.22h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 8.75A16 16 0 0 0 16 16.75l.91-.91a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+      </div>
+      <div>
+        <h4>Sales &amp; Demos</h4>
+        <p>Call <a href="tel:+18663348257">1.866.334.8257</a> or fill out the form — we'll schedule a demonstration tailored to your district's configuration.</p>
+      </div>
+    </div>
+
+    <div class="contact-info-item">
+      <div class="ci-icon">
+        <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+      </div>
+      <div>
+        <h4>Help Desk Support</h4>
+        <p>Current customers: call our help desk at <a href="tel:+12815170400">1.281.517.0400</a> or email <a href="mailto:support@michoicetechnology.com">support@michoicetechnology.com</a>. <a href="support.html">Support details →</a></p>
+      </div>
+    </div>
+
+    <div class="contact-info-item">
+      <div class="ci-icon">
+        <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+      </div>
+      <div>
+        <h4>On-Site Visits</h4>
+        <p>Installation, training, and support visits available. Contact us to schedule a visit to your district.</p>
+      </div>
+    </div>
+
+    <hr class="contact-divider">
+
+    <div class="contact-info-item">
+      <div class="ci-icon">
+        <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.42 2 2 0 0 1 3.6 1.22h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 8.75A16 16 0 0 0 16 16.75l.91-.91a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+      </div>
+      <div>
+        <h4>Phone</h4>
+        <p><a href="tel:+18663348257">1.866.334.8257</a> Toll Free<br>
+        <a href="tel:+12815170400">1.281.517.0400</a> Local<br>
+        <span style="color:var(--t3)">1.866.334.1535 Fax</span></p>
+        <p style="margin-top:.4rem;font-size:.8rem;color:var(--t3)">Office hours: 8:00 a.m.–5:00 p.m. CT, Mon–Fri</p>
+      </div>
+    </div>
+
+    <div class="contact-info-item">
+      <div class="ci-icon">
+        <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+      </div>
+      <div>
+        <h4>Corporate Office</h4>
+        <p>11210 Steeplecrest Drive, Ste 270<br>Houston, Texas 77065</p>
+      </div>
+    </div>
+
+    <div class="contact-info-item">
+      <div class="ci-icon">
+        <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+      </div>
+      <div>
+        <h4>Email</h4>
+        <p><a href="mailto:info@michoicetechnology.com">info@michoicetechnology.com</a> — General<br>
+        <a href="mailto:sales@michoicetechnology.com">sales@michoicetechnology.com</a> — Sales<br>
+        <a href="mailto:support@michoicetechnology.com">support@michoicetechnology.com</a> — Support</p>
+      </div>
+    </div>
+
+    <div class="contact-note">
+      <p><strong>A note from our team:</strong> We're a specialized shop. When you contact us, you're talking to someone who has worked in K-12 food service technology — not a generalist sales team reading from a script.</p>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <p>© 2026 <span class="accent">MiChoice Technology Systems, Inc.</span> All rights reserved.</p>
+  </div>
+</footer>
+
+<script>
+function submitContact(e){
+  e.preventDefault();
+  var g=function(id){var el=document.getElementById(id);return el?el.value.trim():'';};
+  var fname=g('fname'),lname=g('lname'),email=g('email'),phone=g('phone'),
+      district=g('district'),state=g('state'),inquiry=g('inquiry'),message=g('message');
+  var subject='Website inquiry'+(inquiry?' — '+inquiry:'')+(district?' ('+district+')':'');
+  var body=
+    'Name: '+(fname+' '+lname).trim()+'\n'+
+    'Email: '+email+'\n'+
+    'Phone: '+phone+'\n'+
+    'District / Organization: '+district+'\n'+
+    'State: '+state+'\n'+
+    'Inquiry type: '+inquiry+'\n\n'+
+    'Message:\n'+message+'\n';
+  window.location.href='mailto:info@michoicetechnology.com'+
+    '?subject='+encodeURIComponent(subject)+
+    '&body='+encodeURIComponent(body);
+  var btn=document.querySelector('#contactForm .btn-submit');
+  if(btn){btn.textContent='Opening your email app…';}
+  return false;
+}
+</script>
+
+<script src="chat-widget.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Online Meal Account Retrieval — parent balance checking portal for K-12 school meal accounts from MiChoice Technology Systems.">
+<title>Online Meal Account Retrieval | MiChoice Technology Systems</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--bg:#0a0a0a;--bg2:#111111;--bg3:#141414;--border:#1f1f1f;--border2:#2a2a2a;--accent:#3b82f6;--accent-d:#2563eb;--accent-bg:rgba(59,130,246,.08);--t1:#f5f5f5;--t2:#a3a3a3;--t3:#6b7280;--font:-apple-system,BlinkMacSystemFont,'Segoe UI',system-ui,sans-serif}
+body{font-family:var(--font);background:var(--bg);color:var(--t1);line-height:1.6}a{color:inherit;text-decoration:none}
+nav{background:var(--bg2);border-bottom:1px solid var(--border);padding:0 2rem;position:sticky;top:0;z-index:100}
+.nav-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:64px}
+.logo{font-size:1.2rem;font-weight:700;letter-spacing:-.02em}.logo .mi{color:var(--accent)}
+.nav-links{display:flex;gap:1.75rem;list-style:none}.nav-links a{color:var(--t2);font-size:.88rem;font-weight:500;transition:color .2s}.nav-links a:hover{color:var(--accent)}
+.nav-cta{background:var(--accent);color:#000 !important;padding:.4rem 1rem;border-radius:4px;font-weight:600 !important}.nav-cta:hover{background:var(--accent-d) !important;color:#000 !important}
+.breadcrumb{max-width:1200px;margin:0 auto;padding:1.5rem 2rem .5rem;font-size:.82rem;color:var(--t3)}.breadcrumb a{color:var(--accent)}.breadcrumb span{margin:0 .5rem}
+.product-hero{max-width:1200px;margin:0 auto;padding:1.5rem 2rem 3rem;display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
+.badge{display:inline-flex;align-items:center;background:var(--accent-bg);border:1px solid rgba(59,130,246,.25);color:var(--accent);font-size:.72rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:.3rem .7rem;border-radius:3px;margin-bottom:1rem}
+.product-hero h1{font-size:clamp(1.75rem,3.5vw,2.75rem);font-weight:800;letter-spacing:-.03em;margin-bottom:.75rem}
+.product-hero p{color:var(--t2);font-size:.95rem;line-height:1.8;margin-bottom:1.5rem}
+.product-hero-actions{display:flex;gap:1rem;flex-wrap:wrap}
+.btn-primary{background:var(--accent);color:#000;padding:.7rem 1.5rem;border-radius:5px;font-weight:700;font-size:.9rem;display:inline-block;transition:background .2s}.btn-primary:hover{background:var(--accent-d)}
+.btn-secondary{border:1px solid var(--border2);color:var(--t1);padding:.7rem 1.5rem;border-radius:5px;font-weight:600;font-size:.9rem;display:inline-block;transition:all .2s}.btn-secondary:hover{border-color:var(--accent);color:var(--accent)}
+.card-visual{background:var(--bg3);border:1px solid var(--border);border-radius:10px;padding:2rem;text-align:center}.big-icon{font-size:4rem;margin-bottom:1rem}
+.stats-row{max-width:1200px;margin:0 auto;padding:0 2rem;display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
+.stat-card{background:var(--bg3);border:1px solid var(--border);border-radius:6px;padding:1.5rem;text-align:center}
+.stat-card .s-val{font-size:2.25rem;font-weight:800;color:var(--accent);letter-spacing:-.04em;margin-bottom:.3rem}
+.stat-card .s-label{font-size:.82rem;color:var(--t2);font-weight:500}
+.what-parents-see{max-width:1200px;margin:3rem auto 0;padding:0 2rem}
+.what-parents-see h2{font-size:1.25rem;font-weight:700;margin-bottom:1.25rem}
+.view-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
+.view-card{background:var(--bg3);border:1px solid var(--border);border-radius:8px;padding:1.5rem}
+.view-card .v-icon{font-size:1.75rem;margin-bottom:.75rem}
+.view-card h4{font-size:.92rem;font-weight:700;margin-bottom:.4rem}.view-card p{font-size:.83rem;color:var(--t2);line-height:1.6}
+.features-section{max-width:1200px;margin:0 auto;padding:4rem 2rem}
+.features-section h2{font-size:1.5rem;font-weight:800;letter-spacing:-.02em;margin-bottom:2rem}
+.features-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1rem}
+.feature-item{background:var(--bg3);border:1px solid var(--border);border-radius:6px;padding:1.5rem}
+.fi-dot{width:8px;height:8px;background:var(--accent);border-radius:50%;margin-bottom:.75rem}
+.feature-item h4{font-size:.95rem;font-weight:700;margin-bottom:.4rem}.feature-item p{font-size:.85rem;color:var(--t2);line-height:1.6}
+.prose-section{max-width:1200px;margin:0 auto;padding:2rem 2rem 5rem;display:grid;grid-template-columns:2fr 1fr;gap:4rem}
+.prose p{color:var(--t2);font-size:.92rem;line-height:1.8;margin-bottom:1.1rem}.prose h3{font-size:1.1rem;font-weight:700;margin:1.75rem 0 .75rem}.prose h3:first-child{margin-top:0}
+.sidebar-card{background:var(--bg3);border:1px solid var(--border);border-radius:8px;padding:1.5rem;margin-bottom:1.25rem}.sidebar-card h4{font-size:.82rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--t3);margin-bottom:.75rem}
+.sidebar-card ul{list-style:none}.sidebar-card li{font-size:.85rem;color:var(--t2);padding:.3rem 0;border-bottom:1px solid var(--border);display:flex;gap:.5rem}.sidebar-card li:last-child{border-bottom:none}.sidebar-card li::before{content:'▸';color:var(--accent);flex-shrink:0}
+.cta-bridge{max-width:1200px;margin:0 auto;padding:0 2rem 3rem}
+.cta-bridge-inner{background:var(--bg3);border:1px solid var(--border2);border-radius:8px;padding:2rem;display:flex;align-items:center;justify-content:space-between;gap:2rem}
+.cta-bridge-inner p{color:var(--t2);font-size:.9rem;line-height:1.7;max-width:600px}
+.cta-bridge-inner p strong{color:var(--t1)}
+footer{background:var(--bg2);border-top:1px solid var(--border);padding:2.5rem 2rem}.footer-inner{max-width:1200px;margin:0 auto;display:flex;justify-content:space-between;align-items:center}.footer-inner p{font-size:.82rem;color:var(--t3)}.accent{color:var(--accent)}
+@media(max-width:768px){.nav-links{display:none}.product-hero{grid-template-columns:1fr}.stats-row{grid-template-columns:1fr}.view-grid{grid-template-columns:1fr}.prose-section{grid-template-columns:1fr}.cta-bridge-inner{flex-direction:column}.footer-inner{flex-direction:column;gap:.5rem;text-align:center}}
+</style>
+</head>
+<body>
+<nav><div class="nav-inner"><a href="index.html" class="logo"><span class="mi">Mi</span>Choice Technology Systems</a><ul class="nav-links"><li><a href="index.html">Home</a></li><li><a href="aboutus.html">About</a></li><li><a href="products.html">Products</a></li><li><a href="services.html">Services</a></li><li><a href="support.html">Support</a></li><li><a href="contactus.html" class="nav-cta">Contact Us</a></li></ul></div></nav>
+<div class="breadcrumb"><a href="index.html">Home</a><span>›</span><a href="products.html">Products</a><span>›</span>Online Meal Account Retrieval</div>
+
+<div class="product-hero">
+  <div>
+    <div class="badge">Parent Portal</div>
+    <h1>Online Meal Account Retrieval</h1>
+    <p>Parents check their student's meal account balance online, anytime — without calling the cafeteria office. Current balance, recent transaction history, and low-balance email alerts keep families informed and accounts funded. Fewer calls to staff. Fewer low-balance disruptions at the serving line. Informed parents, funded accounts.</p>
+    <div class="product-hero-actions">
+      <a href="contactus.html" class="btn-primary">Request a Demo</a>
+      <a href="products.html" class="btn-secondary">← All Products</a>
+    </div>
+  </div>
+  <div class="card-visual" style="padding:0;overflow:hidden;background:#0d0f14">
+<svg viewBox="0 0 380 260" xmlns="http://www.w3.org/2000/svg" style="width:100%;display:block">
+  <rect width="380" height="260" fill="#0d0f14"/>
+  <!-- Phone/tablet mockup -->
+  <rect x="100" y="15" width="140" height="220" rx="14" fill="#0f1828" stroke="#1e3a5c" stroke-width="1.5"/>
+  <rect x="108" y="28" width="124" height="190" rx="4" fill="#0d1520"/>
+  <!-- Status bar -->
+  <rect x="108" y="28" width="124" height="16" rx="2" fill="#0f2030"/>
+  <text x="118" y="39" fill="#4b6d90" font-size="7" font-family="Arial">9:41 AM</text>
+  <text x="224" y="39" fill="#4b6d90" font-size="7" font-family="Arial" text-anchor="end">●●●</text>
+  <!-- App header -->
+  <rect x="108" y="44" width="124" height="24" fill="#1e3a5c"/>
+  <text x="170" y="59" fill="white" font-size="8.5" font-family="Arial" text-anchor="middle" font-weight="bold">Meal Account</text>
+  <!-- Student selector -->
+  <rect x="112" y="72" width="116" height="18" rx="3" fill="#132033" stroke="#2563eb" stroke-width="0.5"/>
+  <text x="145" y="84" fill="#93c5fd" font-size="7.5" font-family="Arial">Alex Johnson</text>
+  <text x="220" y="84" fill="#3b82f6" font-size="8" font-family="Arial" text-anchor="end">▼</text>
+  <!-- Balance card -->
+  <rect x="112" y="95" width="116" height="50" rx="4" fill="#1e3a5c"/>
+  <text x="170" y="110" fill="#94a3b8" font-size="7" font-family="Arial" text-anchor="middle">CURRENT BALANCE</text>
+  <text x="170" y="130" fill="#86efac" font-size="18" font-family="monospace" text-anchor="middle" font-weight="bold">$8.45</text>
+  <text x="170" y="140" fill="#4b9a6a" font-size="6.5" font-family="Arial" text-anchor="middle">Account Active</text>
+  <!-- Transactions -->
+  <text x="115" y="158" fill="#4b6d90" font-size="6.5" font-family="Arial" font-weight="bold">RECENT</text>
+  <g font-size="6.5" font-family="monospace">
+    <rect x="112" y="162" width="116" height="12" rx="2" fill="#0f1828"/>
+    <text x="116" y="171" fill="#64748b">Lunch Tue</text><text x="224" y="171" fill="#f87171" text-anchor="end">-$2.75</text>
+    <rect x="112" y="176" width="116" height="12" rx="2" fill="#132033"/>
+    <text x="116" y="185" fill="#64748b">Payment</text><text x="224" y="185" fill="#86efac" text-anchor="end">+$20.00</text>
+    <rect x="112" y="190" width="116" height="12" rx="2" fill="#0f1828"/>
+    <text x="116" y="199" fill="#64748b">Lunch Mon</text><text x="224" y="199" fill="#f87171" text-anchor="end">-$2.75</text>
+  </g>
+  <!-- Alert setup -->
+  <rect x="112" y="206" width="116" height="12" rx="2" fill="#1a3254"/>
+  <text x="170" y="215" fill="#93c5fd" font-size="6.5" font-family="Arial" text-anchor="middle">🔔  Low Balance Alert: $5.00</text>
+  <!-- Home button -->
+  <circle cx="170" cy="230" r="6" fill="#1e3a5c" stroke="#2563eb" stroke-width="1"/>
+  <!-- Add funds button -->
+  <rect x="260" y="80" width="100" height="34" rx="6" fill="#1e3a5c" stroke="#3b82f6" stroke-width="1"/>
+  <text x="310" y="94" fill="#93c5fd" font-size="8" font-family="Arial" text-anchor="middle" font-weight="bold">Add Funds</text>
+  <text x="310" y="106" fill="#4b6d90" font-size="6.5" font-family="Arial" text-anchor="middle">mymealmoney.com →</text>
+  <!-- Stats boxes -->
+  <rect x="260" y="130" width="100" height="28" rx="4" fill="#0f2030" stroke="#2563eb" stroke-width="0.5"/>
+  <text x="310" y="143" fill="#93c5fd" font-size="8" font-family="Arial" text-anchor="middle" font-weight="bold">24/7</text>
+  <text x="310" y="153" fill="#4b6d90" font-size="6.5" font-family="Arial" text-anchor="middle">Balance Access</text>
+  <rect x="260" y="165" width="100" height="28" rx="4" fill="#0f2030" stroke="#2563eb" stroke-width="0.5"/>
+  <text x="310" y="178" fill="#93c5fd" font-size="8" font-family="Arial" text-anchor="middle" font-weight="bold">↓ Calls</text>
+  <text x="310" y="188" fill="#4b6d90" font-size="6.5" font-family="Arial" text-anchor="middle">Fewer office inquiries</text>
+  <text x="190" y="248" fill="#4b6d90" font-size="8" font-family="Arial" text-anchor="middle">Parent Portal · Real-Time Balance · Email Alerts</text>
+</svg>
+</div><h3>Meal Account Retrieval</h3><p>24/7 Balance Access · Transaction History · Low-Balance Alerts</p></div>
+</div>
+
+<div class="stats-row">
+  <div class="stat-card"><div class="s-val">24/7</div><div class="s-label">Balance access — any device, any time</div></div>
+  <div class="stat-card"><div class="s-val">↓</div><div class="s-label">Fewer "what's my child's balance?" calls to staff</div></div>
+  <div class="stat-card"><div class="s-val">📧</div><div class="s-label">Email alerts before balances run low</div></div>
+</div>
+
+<div class="what-parents-see">
+  <h2>What Parents See Online</h2>
+  <div class="view-grid">
+    <div class="view-card"><div class="v-icon">💰</div><h4>Current Balance</h4><p>The student's current meal account balance — exactly what is available at the next meal service.</p></div>
+    <div class="view-card"><div class="v-icon">📋</div><h4>Transaction History</h4><p>A record of recent meals charged and payments applied — giving parents visibility into account activity.</p></div>
+    <div class="view-card"><div class="v-icon">🔔</div><h4>Low-Balance Alert Setup</h4><p>Parents set a balance threshold. When the account drops below it, an automatic email alert is sent to the address on file.</p></div>
+  </div>
+</div>
+
+<div class="features-section">
+  <h2>Key Features</h2>
+  <div class="features-grid">
+    <div class="feature-item"><div class="fi-dot"></div><h4>Real-Time Balance Display</h4><p>Account balances displayed reflect the MiChoice system in real time — the same balance the cafeteria POS sees at the serving line.</p></div>
+    <div class="feature-item"><div class="fi-dot"></div><h4>Transaction History</h4><p>Parents can review recent transactions — which meals were purchased, what they cost, and when payments were applied. Account transparency without requiring a call.</p></div>
+    <div class="feature-item"><div class="fi-dot"></div><h4>Low-Balance Email Alerts</h4><p>Automated email notifications when a student's balance falls below a parent-set threshold — giving families time to top up before the account reaches zero.</p></div>
+    <div class="feature-item"><div class="fi-dot"></div><h4>Multi-Student Households</h4><p>Parents with multiple students can check all of their children's accounts in a single session — no need to look up each student separately.</p></div>
+    <div class="feature-item"><div class="fi-dot"></div><h4>No Staff Involvement Required</h4><p>Self-service balance retrieval means parents get the information they need without involving cafeteria or district office staff — freeing staff for operational priorities.</p></div>
+    <div class="feature-item"><div class="fi-dot"></div><h4>Available Any Time</h4><p>The parent portal is available 24 hours a day, 7 days a week. No waiting until the cafeteria opens. No phone tag with office staff.</p></div>
+    <div class="feature-item"><div class="fi-dot"></div><h4>Read-Only Access</h4><p>Account retrieval is a view-only function — balances and history are visible, but no changes can be made. Payments are handled separately through mymealmoney.com.</p></div>
+    <div class="feature-item"><div class="fi-dot"></div><h4>Direct Path to Payment</h4><p>When a parent checks the balance and sees it's low, the portal links directly to mymealmoney.com — the district's RevTrak-powered online payment portal — to add funds immediately.</p></div>
+  </div>
+</div>
+
+<div class="cta-bridge">
+  <div class="cta-bridge-inner">
+    <p><strong>Need to add funds?</strong> Online Meal Account Retrieval shows you the balance. To add money to a student's account, use the district's mymealmoney.com portal — secure online payments via credit or debit card, processed by RevTrak. Payments import automatically into MiChoice. No manual entry required.</p>
+    <a href="onlinemealpayment.html" class="btn-secondary" style="white-space:nowrap">Online Meal Payments →</a>
+  </div>
+</div>
+
+<div class="prose-section">
+  <div class="prose">
+    <h3>The Balance Inquiry Problem</h3>
+    <p>In school cafeterias, one of the most common sources of office interruption is the parent balance inquiry — "What's my child's account balance?" It seems simple, but fielding those calls requires a staff member to stop what they're doing, look up the student, and read the balance. Across a district, these inquiries add up to a significant volume of low-value interruptions to operational staff.</p>
+    <p>Online Meal Account Retrieval eliminates those calls. Parents check the balance themselves, online, at whatever hour is convenient for them. The cafeteria office doesn't get the call because the parent already has the answer.</p>
+    <h3>Preventing Low-Balance Disruptions</h3>
+    <p>The more disruptive scenario isn't the balance inquiry call — it's the student who arrives at the serving line with an empty or nearly empty account. Handling that situation takes serving line time, creates awkward moments for the student, and requires follow-up contact with the family. Low-balance email alerts address the problem before it reaches the cafeteria.</p>
+    <p>When a parent sets a low-balance threshold and receives an automatic alert, they have time to add funds before the account is depleted. The link from the alert — or from the balance retrieval portal — goes directly to mymealmoney.com, where they can add funds immediately. The payment imports automatically into MiChoice. By the next meal service, the account is funded.</p>
+    <h3>Part of the Complete Online Services Suite</h3>
+    <p>Online Meal Account Retrieval is one component of MiChoice's complete suite of online parent services. The Online F&R Application Portal handles eligibility applications digitally. mymealmoney.com handles online payments via RevTrak. Account Retrieval closes the loop by giving parents visibility into the account between application and payment — keeping families informed and engaged without creating work for district staff.</p>
+  </div>
+  <div>
+    <div class="sidebar-card"><h4>Parents Can View</h4><ul><li>Current account balance</li><li>Recent meal transactions</li><li>Payment history</li><li>All enrolled students</li></ul></div>
+    <div class="sidebar-card"><h4>Alert Options</h4><ul><li>Low-balance email alerts</li><li>Parent-defined threshold</li><li>Email address on file</li><li>Direct link to payment portal</li></ul></div>
+    <div class="sidebar-card"><h4>Integrates With</h4><ul><li>MiChoice eMeal POS</li><li>COMS-PRO student accounts</li><li>Online Meal Payments (mymealmoney.com)</li></ul></div>
+  </div>
+</div>
+
+<footer><div class="footer-inner"><p>© 2026 <span class="accent">MiChoice Technology Systems, Inc.</span> All rights reserved.</p></div></footer>
+<script src="chat-widget.js" defer></script>
+</body>
+</html>
