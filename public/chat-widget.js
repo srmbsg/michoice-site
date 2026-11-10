@@ -5,6 +5,7 @@
   var API = BASE + '/api/chat';
   var TTS = BASE + '/api/tts';
   var history = [];
+  var SITE = window.MC_CHAT_SITE === 'carborundum' ? 'carborundum' : 'michoice';
   var voiceOn = false;
   var audio = null;
 
@@ -75,7 +76,9 @@
 
   function esc(s) { return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;'); }
   function linkify(el, text) {
-    el.innerHTML = esc(text).replace(/([a-z0-9_\-]+\.html)/gi, '<a href="/$1">$1</a>');
+    el.innerHTML = esc(text)
+      .replace(/([a-z0-9_\-]+\.html)/gi, '<a href="/$1">$1</a>')
+      .replace(/(^|\s)(\/[a-z0-9_\-\/]+)/g, '$1<a href="$2">$2</a>');
   }
   function addMsg(text, who) {
     var d = document.createElement('div');
@@ -88,7 +91,7 @@
   function speak(text) {
     if (!voiceOn) return;
     var clean = text.replace(/More:\s*\S+/g, '').slice(0, 800);
-    fetch(TTS, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ text: clean }) })
+    fetch(TTS, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ text: clean, site: SITE }) })
       .then(function (r) { if (!r.ok) throw new Error('tts'); return r.blob(); })
       .then(function (b) {
         if (audio) { audio.pause(); }
@@ -130,11 +133,12 @@
     typing.className = 'mc-typing'; typing.textContent = 'Thinking…';
     msgs.appendChild(typing); msgs.scrollTop = msgs.scrollHeight;
     sendBtn.disabled = true;
-    fetch(API, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ message: text, history: history.slice(0, -1) }) })
+    fetch(API, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ message: text, history: history.slice(0, -1), site: SITE }) })
       .then(function (r) { return r.json().then(function (j) { return { ok: r.ok, j: j }; }); })
       .then(function (out) {
         typing.remove();
         var reply = out.ok && out.j.reply ? out.j.reply : 'Sorry — I hit a snag. You can reach a real person at 1.866.334.8257, or through the contact page (contactus.html).';
+        reply = reply.replace(/More:\s*([a-z0-9\-]+)(?:\.html)?\s*$/i, 'More: $1.html');
         addMsg(reply, 'bot');
         history.push({ role: 'assistant', text: reply });
         speak(reply);

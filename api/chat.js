@@ -30,8 +30,7 @@ function chunksFor(page) {
   if (cur.trim()) out.push(cur.trim());
   return out;
 }
-function retrieve(query, k = 6) {
-  const kb = loadKB();
+function retrieveFrom(kb, query, k = 6) {
   const qw = words(query);
   if (!qw.length) return [];
   const scored = [];
@@ -58,8 +57,33 @@ Answer rules:
 - Current customers needing help: help desk 1.281.517.0400 or support@michoicetechnology.com.
 - Company facts you may always use: MiChoice Technology Systems, Inc., 11210 Steeplecrest Drive, Ste 270, Houston, Texas 77065. Sales & demos 1.866.334.8257. Help desk 1.281.517.0400. Fax 1.866.334.1535. Email info@michoicetechnology.com / sales@michoicetechnology.com / support@michoicetechnology.com. Office hours 8:00 a.m.-5:00 p.m. CT, Mon-Fri. 35+ years in K-12 child nutrition, exclusively.`;
 
+
+let CARB_KB = null;
+function loadCarbKB() {
+  if (CARB_KB) return CARB_KB;
+  try {
+    CARB_KB = JSON.parse(fs.readFileSync(path.join(__dirname, 'kb-carborundum.json'), 'utf8'));
+  } catch (e) {
+    CARB_KB = { pages: {} };
+  }
+  return CARB_KB;
+}
+
+const SYSTEM_CARB = `You are the Carborundum AI assistant on carborundum.ai. You are a SI (silicon intelligence) assistant, and you may say so plainly if asked what you are. Carborundum AI builds AI operations software for local trades companies; its front door is SecondShift, an AI phone agent that answers a shop's phones at all hours.
+
+Answer rules:
+- Answer ONLY from the SITE CONTENT provided below and the standing facts in this prompt. If the content does not cover the question, say so plainly and point the visitor to info@carborundum.ai or the demo line (346) 220-4138.
+- Standing facts you may always use: SecondShift's first month is FREE, then $59.99/month flat — no per-minute charges. Live demo line: (346) 220-4138 — call it and talk to SecondShift yourself. Carborundum AI contact: info@carborundum.ai. Signup starts at the intake page /secondshift/start on this site.
+- NEVER invent prices beyond the standing facts, customer names, results, or features that are not in the content.
+- Keep answers short: 2-5 sentences unless the visitor asks for detail. Plain language, no hype.
+- When a site page is relevant, end with a single line: More: <page path> (for example: More: /pillars). One page only.
+- If the visitor wants to buy or talk to a human, direct them to /secondshift/start or info@carborundum.ai.`;
+
 module.exports = async (req, res) => {
-  res.setHeader('Access-Control-Allow-Origin', 'https://www.getmichoice.com');
+  const ORIGINS = ['https://www.getmichoice.com', 'https://getmichoice.com', 'https://www.carborundum.ai', 'https://carborundum.ai'];
+  const origin = req.headers.origin || '';
+  res.setHeader('Access-Control-Allow-Origin', ORIGINS.includes(origin) ? origin : 'https://www.getmichoice.com');
+  res.setHeader('Vary', 'Origin');
   res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
   if (req.method === 'OPTIONS') return res.status(204).end();
@@ -68,10 +92,12 @@ module.exports = async (req, res) => {
   let body = req.body;
   if (typeof body === 'string') { try { body = JSON.parse(body); } catch (e) { body = {}; } }
   const message = ((body && body.message) || '').toString().trim().slice(0, 1000);
+  const site = ((body && body.site) || '').toString() === 'carborundum' ? 'carborundum' : 'michoice';
   const history = Array.isArray(body && body.history) ? body.history.slice(-6) : [];
   if (!message) return res.status(400).json({ error: 'empty message' });
 
-  const hits = retrieve(message + ' ' + history.map(h => h.text || '').join(' '));
+  const activeKB = site === 'carborundum' ? loadCarbKB() : loadKB();
+  const hits = retrieveFrom(activeKB, message + ' ' + history.map(h => h.text || '').join(' '));
   const context = hits.length
     ? hits.map(h => `[from ${h.file}]\n${h.text}`).join('\n\n')
     : '(no matching site content found)';
@@ -80,7 +106,7 @@ module.exports = async (req, res) => {
   const key = (rawKey.split(/\r?\n/).map(l => l.trim()).find(l => l.startsWith('AQ.')) || rawKey.trim());
   if (!key) return res.status(500).json({ error: 'assistant not configured' });
 
-  const messages = [{ role: 'system', content: SYSTEM }];
+  const messages = [{ role: 'system', content: site === 'carborundum' ? SYSTEM_CARB : SYSTEM }];
   for (const h of history) {
     if (h && (h.role === 'user' || h.role === 'assistant') && h.text) messages.push({ role: h.role, content: String(h.text).slice(0, 1000) });
   }

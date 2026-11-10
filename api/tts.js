@@ -1,9 +1,15 @@
 // MiChoice chat voice — ElevenLabs TTS (Matilda, the standing MiChoice walkthrough voice).
 // Key read from ELEVENLABS_API_KEY env var (Vercel project). Perishable: plan ends 2026-12-01.
-const VOICE_ID = 'XrExE9yKIg1WjnnlVkGX'; // Matilda — Knowledgeable, Professional
+const VOICES = {
+  michoice: 'XrExE9yKIg1WjnnlVkGX', // Matilda — standing voice for all MiChoice walkthroughs
+  carborundum: 'ZPQIhmOU6dxcnhcAjNkS' // Rich — approved solo voice of the SecondShift walk-through
+};
 
 module.exports = async (req, res) => {
-  res.setHeader('Access-Control-Allow-Origin', 'https://www.getmichoice.com');
+  const ORIGINS = ['https://www.getmichoice.com', 'https://getmichoice.com', 'https://www.carborundum.ai', 'https://carborundum.ai'];
+  const origin = req.headers.origin || '';
+  res.setHeader('Access-Control-Allow-Origin', ORIGINS.includes(origin) ? origin : 'https://www.getmichoice.com');
+  res.setHeader('Vary', 'Origin');
   res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
   if (req.method === 'OPTIONS') return res.status(204).end();
@@ -12,6 +18,8 @@ module.exports = async (req, res) => {
   let body = req.body;
   if (typeof body === 'string') { try { body = JSON.parse(body); } catch (e) { body = {}; } }
   const text = ((body && body.text) || '').toString().trim().slice(0, 800);
+  const site = ((body && body.site) || '').toString() === 'carborundum' ? 'carborundum' : 'michoice';
+  const VOICE_ID = VOICES[site];
   if (!text) return res.status(400).json({ error: 'empty text' });
 
   const key = process.env.ELEVENLABS_API_KEY;
